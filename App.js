@@ -1,20 +1,24 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet,View, Text, Navigation, SafeAreaView, Image, Button, TouchableOpacity, Platform, Dimensions } from 'react-native';
+import FlatButton from './shared/Button';
+import HomeScreen from './shared/Home';
+import LoginScreen from './shared/Login';
+import SignUpPage from './shared/SignUp';
 
-export default function App() {
+
+
+export default function App({navigation}) {
+  
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+      //<LoginScreen/>
+      <HomeScreen/>
+      //<SignUpPage/>
+      //<Inputs/>
+      //<FlatButton texts='hello'/>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+  Background: {
+  }
 });
