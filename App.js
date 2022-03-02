@@ -7,7 +7,7 @@ import SignUpPage from './shared/SignUp';
 
 
 
-export default function App({navigation}) {
+export default function App() {
   
   return (
       //<LoginScreen/>

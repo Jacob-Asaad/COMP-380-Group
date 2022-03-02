@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet,View, Text, Navigation, SafeAreaView, Image, Button, TouchableOpacity, Platform, Dimensions } from 'react-native';
-import FlatButton from '/Users/rodolforivera/practice/shared/Button.js';
+import FlatButton from './Button.js';
 
 const win = Dimensions.get('window');
 export default function HomeScreen({navigation}) {
@@ -11,7 +11,7 @@ export default function HomeScreen({navigation}) {
           <View>
             <Text  style={styles.logo}> Cloud Fitness </Text>
             <View>
-              <Image style={styles.logoImage} resizeMode="stretch" source={require("/Users/rodolforivera/practice/assets/CloudFitnessLogo.png")}/>
+              <Image style={styles.logoImage} resizeMode="stretch" source={require("../assets/CloudFitnessLogo.png")}/>
             </View>
             <View style = {styles.buttons}>
              <FlatButton title = 'Login' style={styles.buttonSelf} />
