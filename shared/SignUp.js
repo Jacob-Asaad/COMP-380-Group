@@ -3,11 +3,13 @@ import { StyleSheet, Text, TouchableOpacity, View, SafeAreaView, Dimensions, Ima
 import SecureInputs from './SecureTextInput';
 import Inputs from './TextInput';
 import FlatButton from './Button';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 
 const win = Dimensions.get('window');
-export default function SignUpPage(){
+export default function SignUp(){
     return (
+        <KeyboardAwareScrollView style={styles.foot}>
         <SafeAreaView style={styles.Backgrounds}>
             <View><Image style={styles.logoImage} source={require("/Users/rodolforivera/COMP-380-Group/assets/CloudFitnessLogo.png")}></Image></View>
             <View><View><Text style={styles.header}>Register</Text></View>
@@ -18,8 +20,9 @@ export default function SignUpPage(){
             <Text style={styles.text}>Password:</Text>
             <SecureInputs  title = 'Password'/>
             </View>
-            <View style={styles.submit}><FlatButton title='Submit' /></View>
+            <TouchableOpacity style={styles.submit}><FlatButton title='Submit' /></TouchableOpacity>
         </SafeAreaView>
+        </KeyboardAwareScrollView>
     );
 }
 
@@ -31,6 +34,9 @@ const styles = StyleSheet.create({
       
       
       paddingTop: Platform.OS === "android"? 20: 0,
+    },
+    foot: {
+      backgroundColor: `#22abe6`,
     },
     logoImage: {
         width: win.width/2.2,

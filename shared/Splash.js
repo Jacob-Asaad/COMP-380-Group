@@ -1,9 +1,11 @@
 import React from 'react';
-import { StyleSheet,View, Text, Navigation, SafeAreaView, Image, Button, TouchableOpacity, Platform, Dimensions } from 'react-native';
+import { StyleSheet,View, Text, SafeAreaView, Image, Button, TouchableOpacity, Platform, Dimensions } from 'react-native';
 import FlatButton from './Button.js';
 
 const win = Dimensions.get('window');
-export default function HomeScreen({navigation}) {
+
+
+export default function Splash({navigation}) {
   
     return (
         
@@ -14,9 +16,9 @@ export default function HomeScreen({navigation}) {
               <Image style={styles.logoImage} resizeMode="stretch" source={require("../assets/CloudFitnessLogo.png")}/>
             </View>
             <View style = {styles.buttons}>
-             <FlatButton title = 'Login' style={styles.buttonSelf} />
-              <FlatButton title = 'Sign Up' style={styles.buttonSelf}/>
-              <FlatButton title = 'Explore' style={styles.buttonSelf} />
+             <TouchableOpacity  onPress={()=>navigation.navigate('Login')}><FlatButton title = 'Login'  style={styles.buttonSelf} /></TouchableOpacity> 
+              <TouchableOpacity onPress={()=>navigation.navigate('SignUp')}><FlatButton   title = 'Sign Up' style={styles.buttonSelf}/></TouchableOpacity> 
+              <TouchableOpacity onPress={()=>navigation.navigate('Explore')}><FlatButton   title = 'Explore' style={styles.buttonSelf} /></TouchableOpacity>
               </View>
           </View>
         </SafeAreaView>    

@@ -1,15 +1,15 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View, navigation } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 
 export default function FlatButton({title}) {
   
     return (
-        <TouchableOpacity> 
+        
             <View style={styles.Button}>
                 <Text style={styles.ButtonText}>{ title }</Text>
             </View>
-            </TouchableOpacity>
+            
        
     );
   }
