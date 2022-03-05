@@ -11,7 +11,7 @@ export default function SignUp(){
     return (
         <KeyboardAwareScrollView style={styles.foot}>
         <SafeAreaView style={styles.Backgrounds}>
-            <View><Image style={styles.logoImage} source={require("/Users/rodolforivera/COMP-380-Group/assets/CloudFitnessLogo.png")}></Image></View>
+            <View><Image style={styles.logoImage} source={require("../assets/CloudFitnessLogo.png")}></Image></View>
             <View><View><Text style={styles.header}>Register</Text></View>
             <Text>Password:</Text>
             <Inputs  title = 'Email'/>
@@ -20,7 +20,7 @@ export default function SignUp(){
             <Text style={styles.text}>Password:</Text>
             <SecureInputs  title = 'Password'/>
             </View>
-            <TouchableOpacity style={styles.submit}><FlatButton title='Submit' /></TouchableOpacity>
+            <TouchableOpacity style={styles.submit}><FlatButton title='Sign Up' /></TouchableOpacity>
         </SafeAreaView>
         </KeyboardAwareScrollView>
     );

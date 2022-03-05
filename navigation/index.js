@@ -3,6 +3,7 @@ import Splash from '../shared/Splash';
 import Login from '../shared/Login';
 import SignUp from '../shared/SignUp';
 import App from '../App';
+import Explore from '../shared/Explore';
 
 const Stack = createStackNavigator();
 
@@ -12,7 +13,7 @@ function MyStack() {
       <Stack.Screen options={{headerStyle: {backgroundColor: '#22abe6'}}} name="Splash" component={Splash} />
       <Stack.Screen options={{headerStyle: {backgroundColor: '#22abe6'}}} name="Login" component={Login} />
       <Stack.Screen options={{headerStyle: {backgroundColor: '#22abe6'}}} name="SignUp" component={SignUp} />
-      {/* <Stack.Screen name = "Explore" component={Explore}/> */}
+      <Stack.Screen options={{headerStyle: {backgroundColor: '#22abe6'}}} name = "Explore" component={Explore}/>
     </Stack.Navigator>
   );
 }

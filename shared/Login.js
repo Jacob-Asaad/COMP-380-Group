@@ -21,7 +21,7 @@ export default function Login({navigation}){
             <View style={styles.text2}><Text>Password:</Text></View>
             <View><SecureInputs title= 'Password' style = {styles.buttons}/></View>
             </View>
-            <TouchableOpacity style={styles.submit}><FlatButton title='Submit' /></TouchableOpacity>
+            <TouchableOpacity style={styles.submit}><FlatButton title='Login' /></TouchableOpacity>
         </SafeAreaView>
         </KeyboardAwareScrollView>
     );
