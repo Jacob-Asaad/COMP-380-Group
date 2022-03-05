@@ -8,6 +8,7 @@ import Splash from './shared/Splash';
 import Login from './shared/Login';
 import SignUp from './shared/SignUp';
 import { LogBox } from 'react-native';
+import ExploreTabs from './navigation/ExploreTabs';
 LogBox.ignoreLogs([
   "[react-native-gesture-handler] Seems like you\'re using an old API with gesture components, check out new Gestures system!",
 ]);
@@ -24,8 +25,9 @@ export default function App() {
       //<Inputs/>
       //<FlatButton texts='hello'/>
      
-      <NavigationContainer >
+      <NavigationContainer>
        <MyStack/>
+       
       </NavigationContainer>
       
       

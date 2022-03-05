@@ -1,10 +1,10 @@
 import react from "react";
 import { StyleSheet, Platform, Text, View, SafeAreaView } from 'react-native';
 
-export default function Explore({navigation}) {
+export default function Profile({navigation}) {
   
     return (
-        <View ><Text>Explore</Text></View>
+        <View ><Text>Profile</Text></View>
     );
 }
 
