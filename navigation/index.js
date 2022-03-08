@@ -1,7 +1,9 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import Splash from '../shared/Splash';
-import Login from '../shared/Login';
-import SignUp from '../shared/SignUp';
+//import Login from '../shared/Login';
+import Login from '../screens/Login';
+//import SignUp from '../shared/SignUp';
+import SignUp from  '../screens/SignUp';
 import App from '../App';
 import CloudFitness from '../shared/CoudFitness';
 import ExploreTabs from './ExploreTabs';

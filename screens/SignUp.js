@@ -32,11 +32,12 @@ import {
     TextLink,
     TextLinkContent
 } from './../components/styles';
-import {View} from 'react-native';
+import {View, TouchableOpacity, Text} from 'react-native';
+//import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const {brand, darkLight, primary} = Colors;
 
-const SignUp = () => {
+const SignUp = ({navigation}) => {
     const [hidePassword, setHidePassword] = useState(true);
 
     return(
@@ -125,9 +126,10 @@ const SignUp = () => {
                     
                     <ExtraView>
                         <ExtraText>Already have an account? </ExtraText>
-                        <TextLink>
-                            <TextLinkContent>Login</TextLinkContent>
-                        </TextLink>
+                        {/* <TextLink> */}
+                            {/* <TextLinkContent>Login</TextLinkContent> */}
+                        {/* </TextLink> */}
+                        <TouchableOpacity onPress={()=>navigation.navigate('Login')}><Text style={{color: 'yellow', fontSize: 15, marginLeft: 2}}>Login</Text></TouchableOpacity>
                     </ExtraView>
                 </StyledFormArea>)}
 

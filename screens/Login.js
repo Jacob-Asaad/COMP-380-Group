@@ -33,11 +33,13 @@ import {
     TextLinkContent,
     TextLinkContent1
 } from './../components/styles';
-import {View} from 'react-native';
+import {View, TouchableOpacity, Text} from 'react-native';
+//import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const {brand, darkLight, primary} = Colors;
 
-const Login = () => {
+//const Login = ({navigation}) => {
+    export default function Login({navigation}){ 
     const [hidePassword, setHidePassword] = useState(true);
 
     return(
@@ -96,9 +98,12 @@ const Login = () => {
                     
                     <ExtraView>
                         <ExtraText>Don't have an account? </ExtraText>
-                        <TextLink>
-                            <TextLinkContent>Register</TextLinkContent>
-                        </TextLink>
+                        <TouchableOpacity onPress={()=>navigation.navigate('SignUp')}>
+                        {/* <TextLink> */}
+                            {/* <TextLinkContent>Register</TextLinkContent> */}
+                            <Text style={{color: 'yellow', fontSize: 15, marginLeft: 2}}>Register</Text>
+                        {/* </TextLink> */}
+                        </TouchableOpacity>
                     </ExtraView>
                     
                 </StyledFormArea>)}
@@ -125,4 +130,4 @@ const MyTextInput = ({label, icon, isPassword, hidePassword, setHidePassword, ..
     );
 };
 
-export default Login;
+//export default Login;

@@ -31,11 +31,11 @@ export default function App() {
       //<Inputs/>
       //<FlatButton texts='hello'/>
      
-      //<NavigationContainer>
-       //<MyStack/>
+      <NavigationContainer>
+       <MyStack/>
        
-      //</NavigationContainer>
-      <Login/>
+      </NavigationContainer>
+      //<Login/>
       
   );
 }
