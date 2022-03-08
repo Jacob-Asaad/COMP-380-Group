@@ -5,10 +5,16 @@ import { StyleSheet,View, Text, Navigation, SafeAreaView, Image, Button, Touchab
 import MyStack from './navigation';
 import FlatButton from './shared/Button';
 import Splash from './shared/Splash';
-import Login from './shared/Login';
-import SignUp from './shared/SignUp';
+//import Login from './shared/Login';
+//import SignUp from './shared/SignUp';
 import { LogBox } from 'react-native';
 import ExploreTabs from './navigation/ExploreTabs';
+import React from 'react';
+
+
+// screens
+import Login from './screens/Login';
+import SignUp from './screens/SignUp';
 LogBox.ignoreLogs([
   "[react-native-gesture-handler] Seems like you\'re using an old API with gesture components, check out new Gestures system!",
 ]);
@@ -25,11 +31,11 @@ export default function App() {
       //<Inputs/>
       //<FlatButton texts='hello'/>
      
-      <NavigationContainer>
-       <MyStack/>
+      //<NavigationContainer>
+       //<MyStack/>
        
-      </NavigationContainer>
-      
+      //</NavigationContainer>
+      <Login/>
       
   );
 }
