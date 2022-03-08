@@ -30,7 +30,7 @@ export default function Splash({navigation}) {
 
   const styles = StyleSheet.create({
     Background: {
-      backgroundColor: `#22abe6`,
+      backgroundColor: `#00bfff`,
       flex: 1,
       alignItems: "center",
       
