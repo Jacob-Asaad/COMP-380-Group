@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import CreateWorkout from '../shared/CreateWorkout';
-import CloudFitness from '../shared/CoudFitness';
+
+
 import More from '../shared/More';
 import Explore from '../shared/Explore';
 import Profile from '../shared/Profile';

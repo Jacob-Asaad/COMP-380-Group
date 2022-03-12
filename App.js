@@ -1,15 +1,17 @@
-import { NavigationContainer } from '@react-navigation/native';
+
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet,View, Text, Navigation, SafeAreaView, Image, Button, TouchableOpacity, Platform, Dimensions } from 'react-native';
-import MyStack from './navigation';
+
 import FlatButton from './shared/Button';
 import Splash from './shared/Splash';
 //import Login from './shared/Login';
 //import SignUp from './shared/SignUp';
 import { LogBox } from 'react-native';
-import ExploreTabs from './navigation/ExploreTabs';
+//import ExploreTabs from './navigator/ExploreTabs';
 import React from 'react';
+// React navigation stack
+import RootStack from './navigator/RootStack';
 
 
 // screens
@@ -24,20 +26,7 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
   
-  return (
-      //<Login/>
-      //<Splash/>
-      //<SignUp/>
-      //<Inputs/>
-      //<FlatButton texts='hello'/>
-     
-      <NavigationContainer>
-       <MyStack/>
-       
-      </NavigationContainer>
-      //<Login/>
-      
-  );
+  return <RootStack/>
 }
 
 const styles = StyleSheet.create({

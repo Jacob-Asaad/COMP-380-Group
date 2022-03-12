@@ -33,16 +33,18 @@ import {
     TextLinkContent,
     TextLinkContent1
 } from './../components/styles';
-import {View, TouchableOpacity, Text} from 'react-native';
-//import { TouchableOpacity } from 'react-native-gesture-handler';
+import {View} from 'react-native';
 
 const {brand, darkLight, primary} = Colors;
 
-//const Login = ({navigation}) => {
-    export default function Login({navigation}){ 
+// keyboard avoiding view
+import KeyboardAvoidingWrapper from '../components/KeyboardAvoidingWrapper';
+
+const Login = ({navigation}) => {
     const [hidePassword, setHidePassword] = useState(true);
 
     return(
+        <KeyboardAvoidingWrapper>
         <StyledContainer>
            <StatusBar style="dark" />
             <InnerContainer>
@@ -53,6 +55,7 @@ const {brand, darkLight, primary} = Colors;
                     initialValues={{email: '', password: ''}}
                     onSubmit={(values) => {
                         console.log(values);
+                        navigation.navigate("Welcome");
                     }}
                 //  fieldCHanges, fldLosesFocus, fldsbmt,  inptvalues
                 >{({handleChange, handleBlur, handleSubmit, values}) => (<StyledFormArea>
@@ -98,12 +101,9 @@ const {brand, darkLight, primary} = Colors;
                     
                     <ExtraView>
                         <ExtraText>Don't have an account? </ExtraText>
-                        <TouchableOpacity onPress={()=>navigation.navigate('SignUp')}>
-                        {/* <TextLink> */}
-                            {/* <TextLinkContent>Register</TextLinkContent> */}
-                            <Text style={{color: 'yellow', fontSize: 15, marginLeft: 2}}>Register</Text>
-                        {/* </TextLink> */}
-                        </TouchableOpacity>
+                        <TextLink onPress={() => navigation.navigate("SignUp")}>
+                            <TextLinkContent>Sign up</TextLinkContent>
+                        </TextLink>
                     </ExtraView>
                     
                 </StyledFormArea>)}
@@ -111,6 +111,7 @@ const {brand, darkLight, primary} = Colors;
                 </Formik>
             </InnerContainer>
         </StyledContainer>
+        </KeyboardAvoidingWrapper>
     );
 };
 
@@ -130,4 +131,4 @@ const MyTextInput = ({label, icon, isPassword, hidePassword, setHidePassword, ..
     );
 };
 
-//export default Login;
+export default Login;

@@ -1,7 +1,7 @@
 import react from "react";
 import { StyleSheet, Platform, Text, View, SafeAreaView } from 'react-native';
 import {NavigationContainer} from "@react-navigation/native"
-import ExploreTabs from "../navigation/ExploreTabs";
+import ExploreTabs from "../navigator/ExploreTabs";
 
 export default function CloudFitness({navigation}) {
   

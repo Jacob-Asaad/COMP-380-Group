@@ -32,7 +32,7 @@ import {
     TextLink,
     TextLinkContent
 } from './../components/styles';
-import {View, TouchableOpacity, Text} from 'react-native';
+import {View} from 'react-native';
 //import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const {brand, darkLight, primary} = Colors;
@@ -51,6 +51,7 @@ const SignUp = ({navigation}) => {
                     initialValues={{firstName: '', lastName: '', email: '', password: ''}}
                     onSubmit={(values) => {
                         console.log(values);
+                        navigation.navigate("Login");
                     }}
                 //  fieldCHanges, fldLosesFocus, fldsbmt,  inptvalues
                 >{({handleChange, handleBlur, handleSubmit, values}) => (<StyledFormArea>
