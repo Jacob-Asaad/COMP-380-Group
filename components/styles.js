@@ -51,7 +51,7 @@ export const SubTitle = styled.Text`
     letter-spacing: 1px;
     font-weight: bold;
     color: ${tertiary};
-    padding: 10px;
+    padding: 1px;
 
     ${(props) => props.welcome && `
       margin-bottom: 5px;
@@ -136,6 +136,7 @@ export const ButtonText1 = styled.Text`
 export const MsgBox = styled.Text`
     text-align: center;
     font-size: 13px;
+    color: ${props => props.type == 'SUCCESS' ? green: red};
 `;
 
 export const Line = styled.View`
@@ -195,4 +196,20 @@ export const Avatar = styled.Image`
 export const WelcomeImage = styled.Image`
     height: 50%;
     min-width: 100%;
+`;
+
+export const BottomTab = styled.TouchableOpacity`
+padding: 1px;
+background-color: ${green};
+justify-content: center;
+align-items: center;
+border-radius: 5px;
+margin-vertical: 5px;
+margin-horizontal: 15px;
+height: 8%;
+width: 15%;
+marginTop: 175%;
+
+flex-direction: row;
+
 `;

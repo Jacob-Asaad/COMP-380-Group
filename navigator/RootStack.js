@@ -1,6 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
-import CreateWorkout from '../screens/CreateWorkout';
+
 import {Colors} from './../components/styles';
 const {primary, tertiary} = Colors;
 import Splash from '../shared/Splash';
@@ -8,11 +8,12 @@ import Splash from '../shared/Splash';
 import Login from './../screens/Login';
 //import SignUp from '../shared/SignUp';
 import SignUp from  './../screens/SignUp';
-import App from '../App';
+
 import Welcome from './../screens/Welcome';
 
 import ExploreTabs from './ExploreTabs';
-import CloudFitness from './../screens/CoudFitness';
+import CloudFitness from '../screens/CloudFitness';
+import CreateWorkout from './../screens/CreateWorkout';
 
 
 const Stack = createNativeStackNavigator();
@@ -32,13 +33,14 @@ function MyStack() {
                       paddingLeft: 20
                   }
               }}
-              initialRouteName="Splash"
+              initialRouteName="Login"
     >
       <Stack.Screen name="Splash" component={Splash} />
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="SignUp" component={SignUp} />
       <Stack.Screen name="Welcome" component={Welcome} />
       <Stack.Screen name="CloudFitness" component={CloudFitness} />
+      <Stack.Screen name="CreateWorkout" component={CreateWorkout} />
     </Stack.Navigator>
     </NavigationContainer>
   );

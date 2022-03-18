@@ -1,11 +1,15 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 
+// API client
+import axios from 'axios';
+import Welcome from './Welcome';
+
 // importing Formik from the package that we installed
-import {Formik} from 'formik';
+import { Formik } from 'formik';
 
 // icons
-import {Octicons, Ionicons, Fontisto } from '@expo/vector-icons';
+import { Octicons, Ionicons, Fontisto } from '@expo/vector-icons';
 
 
 
@@ -33,15 +37,54 @@ import {
     TextLinkContent,
     TextLinkContent1
 } from './../components/styles';
-import {View} from 'react-native';
+import { View, ActivityIndicator } from 'react-native';
 
-const {brand, darkLight, primary} = Colors;
+const { brand, darkLight, primary } = Colors;
 
 // keyboard avoiding view
 import KeyboardAvoidingWrapper from '../components/KeyboardAvoidingWrapper';
 
 const Login = ({navigation}) => {
     const [hidePassword, setHidePassword] = useState(true);
+    const [message, setMessage] = useState();
+    const [messageType, setMessageType] = useState();
+
+    const handleLogin = (credentials, setSubmitting) => {
+        handleMessage(null);
+        const url = 'https://aqueous-mountain-56734.herokuapp.com/user/signin';
+        
+                              // inside then is a promise
+        axios
+        .post(url, credentials)
+        .then((response) => {
+            const result = response.data;
+
+            // this might not work with replit setup might have to set up endpoints
+            // in ttpc specific environment
+            const {message, status, data} = result;
+
+            if (status != 'SUCCESS') {
+                //console.log(response.status);
+                handleMessage(message, status);
+                
+            } else {
+                navigation.navigate("Welcome", { ...data[0] });
+            }
+            setSubmitting(false);
+        })
+        .catch((error) => {
+            //console.log(error.JSON());
+            setSubmitting(false);
+            handleMessage("An error occured. Check your network and try again");
+        });
+    };
+    // this function will take in the message and the type
+    
+                // set default value "FAILED"
+    const handleMessage = (message, type = 'FAILED') => {
+        setMessage(message);
+        setMessageType(type);
+     };
 
     return(
         <KeyboardAvoidingWrapper>
@@ -52,13 +95,18 @@ const Login = ({navigation}) => {
                 <PageTitle>Cloud Fitness</PageTitle>
                 <SubTitle>Account Login</SubTitle>
                 <Formik
-                    initialValues={{email: '', password: ''}}
-                    onSubmit={(values) => {
-                        console.log(values);
-                        navigation.navigate("Welcome");
+                    initialValues={{ email: '', password: '' }}
+                    onSubmit={(values, { setSubmitting }) => {
+                        if (values.email == '' || values.password == '') {
+                            handleMessage('Please fill all the fields');
+                            setSubmitting(false);
+                        } else {
+                            handleLogin(values, setSubmitting);
+                        }
+                        //navigation.navigate("Welcome");
                     }}
                 //  fieldCHanges, fldLosesFocus, fldsbmt,  inptvalues
-                >{({handleChange, handleBlur, handleSubmit, values}) => (<StyledFormArea>
+                >{({ handleChange, handleBlur, handleSubmit, values, isSubmitting }) => (<StyledFormArea>
                     <MyTextInput 
                         label="Email Address"
                         icon="mail"
@@ -90,12 +138,16 @@ const Login = ({navigation}) => {
                             <TextLinkContent1>Click here</TextLinkContent1>
                         </TextLink>
                     </ExtraView>
-                    <MsgBox>...</MsgBox>
-                    <StyledButton onPress={handleSubmit}>
+                    <MsgBox type={messageType}>{message}</MsgBox>
+                    {!isSubmitting && (<StyledButton onPress={handleSubmit}>
                         <ButtonText>
                             Login
                         </ButtonText>
-                    </StyledButton>
+                    </StyledButton>)}
+
+                    {isSubmitting && (<StyledButton disabled={true}>
+                        <ActivityIndicator size="large" color={primary} />
+                    </StyledButton>)}
                     <Line />
                     
                     

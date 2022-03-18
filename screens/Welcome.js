@@ -21,7 +21,8 @@ import {
 
 
 
-const Welcome = ({navigation}) => {
+const Welcome = ({ navigation, route }) => {
+    const {firstName, lastName, email} = route.params;
     
     const [hidePassword, setHidePassword] = useState(true);
     return(
@@ -32,8 +33,8 @@ const Welcome = ({navigation}) => {
                 <WelcomeImage resizeMode="cover" source={require('./../assets/CloudFitnessLogo.png')}/>
                 <WelcomeContainer>
                 <PageTitle welcome={true}>Welcome! Buddy</PageTitle>
-                <SubTitle welcome={true}>Joe Weinstock</SubTitle>
-                <SubTitle welcome={true}>joeweinstock@widgetfactory.com</SubTitle>
+                <SubTitle welcome={true}>{firstName + ' ' + lastName|| 'Joe Weinstock'}</SubTitle>
+                <SubTitle welcome={true}>{email || 'joeweinstock@widgetfactory.com'}</SubTitle>
                 <StyledFormArea>
                 <Avatar resizeMode="cover" source={require('./../assets/CloudFitnessLogo.png')} />
                 <Line />
