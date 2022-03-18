@@ -29,7 +29,7 @@ export default function Login({navigation}){
 
 const styles = StyleSheet.create({
     Backgrounds: {
-      backgroundColor: `#22abe6`,
+      backgroundColor: `#22abe6`, // #22abe6 - original 
       flex: 1,
       alignItems: "center",
       paddingTop: Platform.OS === "android"? 20: 0,

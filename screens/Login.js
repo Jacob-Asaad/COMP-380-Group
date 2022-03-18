@@ -146,7 +146,7 @@ const Login = ({navigation}) => {
                     </StyledButton>)}
 
                     {isSubmitting && (<StyledButton disabled={true}>
-                        <ActivityIndicator size="large" color={primary} />
+                        <ActivityIndicator size="large" color={secondary} />
                     </StyledButton>)}
                     <Line />
                     

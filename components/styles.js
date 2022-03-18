@@ -4,8 +4,9 @@ import Constants from 'expo-constants';
 
 const StatusBarHeight = Constants.statusBarHeight;
 export const Colors = {
-    primary: "#00bfff",
-    secondary: "#E5E7EB",
+    primary: "#0066ee", // #00bfff - original - blue background 0066ee
+    secondary: "#E5E7EB", //E5E7EB white
+    loginColor: "#5abdf6",
     tertiary: "#1F2937", 
     darkLight: "#9CA3AF",
     brand: "#0000ff",
@@ -13,7 +14,7 @@ export const Colors = {
     red: "#FF0000",
 };
 
-const { primary, secondary, tertiary, darkLight, brand, green, red } = Colors;
+const { primary, secondary, tertiary, darkLight, brand, green, red, loginColor } = Colors;
 
 export const StyledContainer = styled.View`
      flex: 1;
@@ -99,7 +100,7 @@ export const RightIcon = styled.TouchableOpacity`
 
 export const StyledButton = styled.TouchableOpacity`
     padding: 15px;
-    background-color: ${brand};
+    background-color: ${loginColor};
     justify-content: center;
     align-items: center;
     border-radius: 5px;
@@ -120,7 +121,7 @@ export const StyledButton1 = styled.TouchableOpacity`
 `;
 
 export const ButtonText = styled.Text`
-    color: ${primary};
+    color: ${secondary};
     font-size: 16px;
 
     
