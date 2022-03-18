@@ -92,7 +92,7 @@ const Login = ({navigation}) => {
            <StatusBar style="dark" />
             <InnerContainer>
                 <PageLogo resizeMode="cover" source={require('./../assets/CloudFitnessLogo.png')} />
-                <PageTitle>Cloud Fitness</PageTitle>
+                {/* <PageTitle>Cloud Fitness</PageTitle> */}
                 <SubTitle>Account Login</SubTitle>
                 <Formik
                     initialValues={{ email: '', password: '' }}
@@ -133,9 +133,9 @@ const Login = ({navigation}) => {
 
                     />
                     <ExtraView>
-                        <ExtraText>Forgot your password? </ExtraText>
+                        {/* <ExtraText>Forgot your password? </ExtraText> */}
                         <TextLink>
-                            <TextLinkContent1>Click here</TextLinkContent1>
+                            <TextLinkContent1>Forgot your password?</TextLinkContent1>
                         </TextLink>
                     </ExtraView>
                     <MsgBox type={messageType}>{message}</MsgBox>
