@@ -6,7 +6,7 @@ import { Keyboard } from 'react-native-web';
 
 const KeyboardAvoidingWrapper = ({children}) => {
     return (
-        <KeyboardAvoidingView style={{flex: 1, backgroundColor: '#00bfff'}}>
+        <KeyboardAvoidingView style={{flex: 1, backgroundColor: "#0066ee"}}>
             <ScrollView>
                 <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                     {children}
