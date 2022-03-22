@@ -12,9 +12,10 @@ export const Colors = {
     brand: "#0000ff",
     green: "#7fff00",
     red: "#FF0000",
+    tempVar: null,
 };
 
-const { primary, secondary, tertiary, darkLight, brand, green, red, loginColor } = Colors;
+const { primary, secondary, tertiary, darkLight, brand, green, red, loginColor,tempVar } = Colors;
 
 export const StyledContainer = styled.View`
      flex: 1;
