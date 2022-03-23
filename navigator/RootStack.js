@@ -33,13 +33,13 @@ function MyStack() {
                       paddingLeft: 20
                   }
               }}
-              initialRouteName="Login"
+              initialRouteName="Splash"
     >
       <Stack.Screen name="Splash" component={Splash} />
       <Stack.Screen name="Login" component={Login} />
-      <Stack.Screen name="SignUp" component={SignUp} />
+      <Stack.Screen name="SignUp" component={SignUp} /> 
       <Stack.Screen name="Welcome" component={Welcome} />
-      <Stack.Screen name="CloudFitness" component={CloudFitness} />
+      <Stack.Screen name="ExploreTabs" component={ExploreTabs} />
       <Stack.Screen name="CreateWorkout" component={CreateWorkout} />
     </Stack.Navigator>
     </NavigationContainer>

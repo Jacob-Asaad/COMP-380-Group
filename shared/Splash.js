@@ -11,14 +11,14 @@ export default function Splash({navigation}) {
         
         <SafeAreaView style={styles.Background}>
           <View>
-            <Text  style={styles.logo}> Cloud Fitness </Text>
+            {/* <Text  style={styles.logo}> Cloud Fitness </Text> */}
             <View>
               <Image style={styles.logoImage} resizeMode="stretch" source={require("../assets/CloudFitnessLogo.png")}/>
             </View>
             <View style = {styles.buttons}>
              <TouchableOpacity  onPress={()=>navigation.navigate('Login')}><FlatButton title = 'Login'  style={styles.buttonSelf} /></TouchableOpacity> 
               <TouchableOpacity onPress={()=>navigation.navigate('SignUp')}><FlatButton   title = 'Sign Up' style={styles.buttonSelf}/></TouchableOpacity> 
-              <TouchableOpacity onPress={()=>navigation.navigate('CloudFitness')}><FlatButton   title = 'Explore' style={styles.buttonSelf} /></TouchableOpacity>
+              <TouchableOpacity onPress={()=>navigation.navigate('ExploreTabs')}><FlatButton   title = 'Explore' style={styles.buttonSelf} /></TouchableOpacity>
               </View>
           </View>
         </SafeAreaView>    
@@ -30,7 +30,7 @@ export default function Splash({navigation}) {
 
   const styles = StyleSheet.create({
     Background: {
-      backgroundColor: `#00bfff`,
+      backgroundColor: `#0066ee`,
       flex: 1,
       alignItems: "center",
       
@@ -41,7 +41,7 @@ export default function Splash({navigation}) {
       top: 65,
       alignSelf: 'center',
       fontSize: 32,
-      paddingBottom: 83,
+      paddingBottom: 15,
       
     },
     buttons: {
@@ -50,13 +50,13 @@ export default function Splash({navigation}) {
       alignSelf: 'center',
       //padding: 10,
       width: 40, 
-      margin: 39,
+      //margin: 39,
     },  
     
     logoImage: {
-      width: win.width/1.3,
-      height: win.width/1.9,
-      resizeMode: "contain",
+      width: win.width/1.2,
+      height: win.width/1.2,
+      resizeMode: "cover",
       alignSelf: "center",
     }
   });
