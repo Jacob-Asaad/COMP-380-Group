@@ -4,6 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 // API client
 import axios from 'axios';
 import Welcome from './Welcome';
+import ExploreTabs from '../navigator/ExploreTabs';
 
 // importing Formik from the package that we installed
 import { Formik } from 'formik';
@@ -51,7 +52,7 @@ const Login = ({navigation}) => {
 
     const handleLogin = (credentials, setSubmitting) => {
         handleMessage(null);
-        const url = 'https://aqueous-mountain-56734.herokuapp.com/user/signin';
+        const url = 'https://fitnessapp3773.herokuapp.com/user/signin';
         
                               // inside then is a promise
         axios
@@ -68,7 +69,7 @@ const Login = ({navigation}) => {
                 handleMessage(message, status);
                 
             } else {
-                navigation.navigate("Welcome", { ...data[0] });
+                navigation.navigate("ExploreTabs", { ...data[0] });
             }
             setSubmitting(false);
         })
@@ -146,7 +147,7 @@ const Login = ({navigation}) => {
                     </StyledButton>)}
 
                     {isSubmitting && (<StyledButton disabled={true}>
-                        <ActivityIndicator size="large" color={secondary} />
+                        <ActivityIndicator size="large" color={Colors.secondary} />
                     </StyledButton>)}
                     <Line />
                     

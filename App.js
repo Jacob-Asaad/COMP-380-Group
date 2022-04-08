@@ -12,11 +12,14 @@ import { LogBox } from 'react-native';
 import React from 'react';
 // React navigation stack
 import RootStack from './navigator/RootStack';
+import ExploreTabs from './navigator/ExploreTabs';
 
 
 // screens
 import Login from './screens/Login';
 import SignUp from './screens/SignUp';
+import Exercise from './screens/Exercise';
+import Home from './screens/Home';
 LogBox.ignoreLogs([
   "[react-native-gesture-handler] Seems like you\'re using an old API with gesture components, check out new Gestures system!",
 ]);

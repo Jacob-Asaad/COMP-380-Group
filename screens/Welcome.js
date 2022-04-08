@@ -1,7 +1,7 @@
 import React , {useState} from 'react';
 import { StatusBar } from 'expo-status-bar';
 
-
+import ExploreTabs from './../navigator/ExploreTabs';
 import {Formik} from 'formik';
 
 
@@ -38,6 +38,7 @@ const Welcome = ({ navigation, route }) => {
                 <StyledFormArea>
                 <Avatar resizeMode="cover" source={require('./../assets/CloudFitnessLogo.png')} />
                 <Line />
+                
                     <StyledButton onPress={() => navigation.navigate("Login")}>
                         <ButtonText>
                             Logout
@@ -49,7 +50,7 @@ const Welcome = ({ navigation, route }) => {
                     
                     
                 </StyledFormArea>
-
+                
                 </WelcomeContainer>
             </InnerContainer>
         </>
