@@ -33,7 +33,7 @@ function MyStack() {
                       paddingLeft: 20
                   }
               }}
-              initialRouteName="Login"
+              initialRouteName="Splash"
     >
       <Stack.Screen name="Splash" component={Splash} />
       <Stack.Screen name="Login" component={Login} />
