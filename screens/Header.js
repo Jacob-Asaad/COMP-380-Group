@@ -12,7 +12,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 const Header = ({}) => {
     return (
        <HeaderView>
-           <HeaderTitle>Workouts</HeaderTitle>
+           <HeaderTitle>My Workouts</HeaderTitle>
            <HeaderButton
                
            >
