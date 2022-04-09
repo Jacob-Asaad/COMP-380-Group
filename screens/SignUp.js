@@ -90,7 +90,7 @@ const SignUp = ({navigation}) => {
             <InnerContainer>
               
                 <PageTitle>Cloud Fitness</PageTitle>
-                <SubTitle>Account SignUp</SubTitle>
+                <SubTitle>Sign Up</SubTitle>
                 <Formik
                     initialValues={{firstName: '', lastName: '', email: '', password: ''}}
                     onSubmit={(values, {setSubmitting}) => {

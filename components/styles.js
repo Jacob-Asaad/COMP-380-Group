@@ -36,10 +36,10 @@ export const PageLogo = styled.Image`
 `;
 
 export const PageTitle = styled.Text`
-    font-size: 30px;
+    font-size: 40px;
     text-align: center;
     font-weight: bold;
-    color: ${brand};
+    color: ${secondary};
     padding: 10px;
 
     ${(props) => props.welcome && `
@@ -48,12 +48,12 @@ export const PageTitle = styled.Text`
 `;
 
 export const SubTitle = styled.Text`
-    font-size: 18px;
-    margin-top: 25px;
+    font-size: 25px;
+    margin-top: 15px;
     margin-bottom: 20px;
     letter-spacing: 1px;
     font-weight: bold;
-    color: ${tertiary};
+    color: ${secondary};
     padding: 1px;
 
     ${(props) => props.welcome && `
@@ -170,12 +170,12 @@ export const TextLink = styled.TouchableOpacity`
 `;
 
 export const TextLinkContent = styled.Text`
-    color: ${green};
+    color: ${secondary};
     font-size: 15px;
 `;
 
 export const TextLinkContent1 = styled.Text`
-    color: ${red};
+    color: ${secondary};
     font-size: 15px;
 `;
 
