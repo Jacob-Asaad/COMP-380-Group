@@ -20,7 +20,7 @@ const { primary, secondary, tertiary, darkLight, brand, green, red, loginColor,t
 export const StyledContainer = styled.View`
      flex: 1;
      padding: 15px;
-     padding-top: ${StatusBarHeight + 30}px;
+     padding-top: ${StatusBarHeight + 15}px;
      background-color: ${primary};
 `;
 
@@ -377,4 +377,32 @@ export const ModalActionGroup = styled.View`
 export const ModalIcon = styled.View`
   align-items: center;
   margin-bottom: 30px;
+`;
+
+export const MiniTitle = styled.Text`
+  font-size: 25px;
+  margin-bottom: 20px;
+  
+`;
+
+export const MoreBox = styled.View`
+  flex-direction: row;
+  align-self: stretch;
+  margin: 10px;
+  padding: 10px;
+  padding-right: 60%;
+  border-width: 1px;
+  background-color: ${colors1.secondary};
+`;
+
+export const MoreText = styled.Text`
+ font-size: 15px;
+  align-self: flex-start;
+`;
+export const MoreTextInput = styled.TextInput`
+    background-color: ${secondary};
+    padding: 6px;
+    align-self: stretch;
+    
+    color: ${tertiary};
 `;
