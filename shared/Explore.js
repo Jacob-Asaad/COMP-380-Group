@@ -10,6 +10,6 @@ export default function Explore({navigation}) {
 
 const styles = StyleSheet.create({
     container: {
-        
+        marginTop: 20,
     }
   });
