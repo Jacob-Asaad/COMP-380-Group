@@ -15,10 +15,11 @@ import ExploreTabs from './ExploreTabs';
 import CloudFitness from '../screens/CloudFitness';
 import CreateWorkout from './../screens/CreateWorkout';
 import Exercise from './../screens/Exercise';
+import PublicSiteWorkouts from './../shared/ExploreDemo';
 
 const Stack = createNativeStackNavigator();
 
-function MyStack() {
+function MyStack({}) {
   return (
     <NavigationContainer>
     <Stack.Navigator
@@ -33,7 +34,7 @@ function MyStack() {
                       paddingLeft: 20
                   }
               }}
-              initialRouteName="Login"
+              initialRouteName="Splash"
     >
       <Stack.Screen name="Splash" component={Splash} />
       <Stack.Screen name="Login" component={Login} />
@@ -42,6 +43,7 @@ function MyStack() {
       <Stack.Screen name="ExploreTabs" component={ExploreTabs} />
       <Stack.Screen name="CreateWorkout" component={CreateWorkout} />
       <Stack.Screen name="Exercise" component={Exercise} />
+      <Stack.Screen name="PublicSiteWorkouts" component={PublicSiteWorkouts} />
     </Stack.Navigator>
     </NavigationContainer>
   );

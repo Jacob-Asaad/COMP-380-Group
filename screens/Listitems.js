@@ -34,6 +34,7 @@ const ListItems = ({workouts, setWorkouts, handleWorkoutEdit}) => {
         {workouts.length == 0 && <TodoText>The Best Shape of Your Life Starts Here</TodoText>}
         {workouts.length != 0 && <SwipeListView 
             data={workouts}
+            keyExtractor = {(item, index) => 'key' + index}
             renderItem={(data) => {
                 const RowText = data.item.key === swipedRow ? SwipedTodoText : TodoText;
                 return (
@@ -44,7 +45,7 @@ const ListItems = ({workouts, setWorkouts, handleWorkoutEdit}) => {
                         }}
                     >
                         <>
-                        <RowText>{data.item.title}</RowText>
+                        <RowText>{data.item.workoutName}</RowText>
                         <TypeText>Type: {data.item.workoutType}</TypeText>
                         <TypeText>Exercises: {data.item.exercises}</TypeText>
                         <TodoDate>{data.item.date}</TodoDate>

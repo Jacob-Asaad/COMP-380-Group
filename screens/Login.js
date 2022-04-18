@@ -88,6 +88,7 @@ const Login = ({navigation}) => {
      };
 
     return(
+        
         <KeyboardAvoidingWrapper>
         <StyledContainer>
            <StatusBar style="dark" />
@@ -165,6 +166,8 @@ const Login = ({navigation}) => {
             </InnerContainer>
         </StyledContainer>
         </KeyboardAvoidingWrapper>
+        
+        
     );
 };
 

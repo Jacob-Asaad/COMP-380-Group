@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { NavigationContainer, useRoute } from '@react-navigation/native';
+
 import {
     HeaderView,
     HeaderTitle,
@@ -9,10 +11,11 @@ import {
 
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-const Header = ({}) => {
+const Header = ({navigation, firstName}) => {
+    const route = useRoute();
     return (
        <HeaderView>
-           <HeaderTitle>Workouts</HeaderTitle>
+           <HeaderTitle>{route.params.firstName}'s Workouts</HeaderTitle>
            <HeaderButton
                
            >

@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { Text } from 'react-native';
+import { NavigationContainer, useRoute } from '@react-navigation/native';
 
 import ExerciseHome from './ExerciseHome';
 
@@ -9,9 +10,12 @@ import { Container } from './../components/styles';
 
 import InputModal from './inputModal';
 import Header from "./Header.js";
+import fitnessAPI from '../apis/fitness';
 
-const Home = () => {
+const Home = ({isExercise, firstName}) => {
 
+    const route = useRoute();
+    
     // initial Workouts
     const initialWorkouts = [{
         title: "HandStand Push Ups",
@@ -39,7 +43,32 @@ const Home = () => {
         key: "4"
     }]
 
-    const [workouts, setWorkouts] = useState(initialWorkouts);
+    //const [workouts, setWorkouts] = useState(initialWorkouts);
+    const [workouts, setWorkouts] = useState([]);
+    const [workoutEmail, setWorkoutEmail] = useState();
+
+    useEffect(()=>{
+        getWorkoutsFromAPI()
+        
+    },[])
+    
+    function getWorkoutsFromAPI(){
+        fitnessAPI.get("workout/" + route.params.email)
+        .then(function(response){
+            setWorkouts(response.data)
+            //console.log(workouts)
+            setWorkoutEmail(route.params.email)
+            
+            
+        })
+        .catch(function(error){
+            //console.log(error)
+        })
+    }
+
+    if (!workouts) {
+        return null
+    }
 
     // clear all workouts
     const handleClearWorkouts = () => {
@@ -71,10 +100,11 @@ const Home = () => {
     // our item to be edited
     const handleWorkoutEdit = (item) => {
         setWorkoutToBeEdited(item);
+        setWorkoutIDValue(item._id);
         setModalVisible(true);
-        setWorkoutInputValue(item.title);
+        setWorkoutInputValue(item.workoutName);
         setWorkoutTypeValue(item.workoutType);
-        setWorkoutIDValue(item.key);
+        //setWorkoutIDValue(item.key);
     }
 
     const handleEditWorkout = (editedWorkout) => {
@@ -85,18 +115,35 @@ const Home = () => {
         setWorkoutToBeEdited(null);
         setModalVisible(false);
     }
+    handleExerciseOpen = () => {
+        this.setState({ isExercise: true });
+    };
+
+    handleExerciseClose = () => {
+        this.setState({ isExercise: false });
+    };
 
 
     return (
         <Container>
         <>
-       <Header handleClearWorkouts={handleClearWorkouts}/>
+       <Header 
+       handleClearWorkouts={handleClearWorkouts}
+       firstName={firstName}
+       
+       />
        <ListItems
          workouts={workouts}
+         data={workouts}
+         workoutEmail={workoutEmail}
+         
          setWorkouts={setWorkouts}
          handleWorkoutEdit={handleWorkoutEdit} 
         />
         <InputModal
+            getWorkoutsFromAPI={getWorkoutsFromAPI}
+            workoutIDValue={workoutIDValue}
+            workoutEmail={workoutEmail}
             modalVisible={modalVisible}
             setModalVisible={setModalVisible}
             workoutInputValue={workoutInputValue}

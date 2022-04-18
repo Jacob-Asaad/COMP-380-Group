@@ -1,7 +1,7 @@
 import React , {useState} from 'react';
 import { StatusBar } from 'expo-status-bar';
+import { NavigationContainer, useRoute } from '@react-navigation/native';
 
-import ExploreTabs from './../navigator/ExploreTabs';
 import {Formik} from 'formik';
 
 
@@ -18,11 +18,12 @@ import {
     Avatar
 } from './../components/styles';
 
+import Header from './Header';
 
 
-
-const Welcome = ({ navigation, route }) => {
-    const {firstName, lastName, email} = route.params;
+const Welcome = ({ navigation, firstName, lastName, email }) => {
+    const route = useRoute();
+    //console.log(route.params.lastName);
     
     const [hidePassword, setHidePassword] = useState(true);
     return(
@@ -33,8 +34,8 @@ const Welcome = ({ navigation, route }) => {
                 <WelcomeImage resizeMode="cover" source={require('./../assets/CloudFitnessLogo.png')}/>
                 <WelcomeContainer>
                 <PageTitle welcome={true}>Welcome! Buddy</PageTitle>
-                <SubTitle welcome={true}>{firstName + ' ' + lastName|| 'Joe Weinstock'}</SubTitle>
-                <SubTitle welcome={true}>{email || 'joeweinstock@widgetfactory.com'}</SubTitle>
+                <SubTitle welcome={true}>{route.params.firstName + ' ' + route.params.lastName|| 'Joe Weinstock'}</SubTitle>
+                <SubTitle welcome={true}>{route.params.email || 'joeweinstock@widgetfactory.com'}</SubTitle>
                 <StyledFormArea>
                 <Avatar resizeMode="cover" source={require('./../assets/CloudFitnessLogo.png')} />
                 <Line />
@@ -53,6 +54,11 @@ const Welcome = ({ navigation, route }) => {
                 
                 </WelcomeContainer>
             </InnerContainer>
+            <Header 
+                firstName={firstName}
+                lastName={lastName}
+                email={email}
+            />
         </>
     );
 };

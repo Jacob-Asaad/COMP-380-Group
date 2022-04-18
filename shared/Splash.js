@@ -18,7 +18,7 @@ export default function Splash({navigation}) {
             <View style = {styles.buttons}>
              <TouchableOpacity  onPress={()=>navigation.navigate('Login')}><FlatButton title = 'Login'  style={styles.buttonSelf} /></TouchableOpacity> 
               <TouchableOpacity onPress={()=>navigation.navigate('SignUp')}><FlatButton   title = 'Sign Up' style={styles.buttonSelf}/></TouchableOpacity> 
-              <TouchableOpacity onPress={()=>navigation.navigate('ExploreTabs')}><FlatButton   title = 'Explore' style={styles.buttonSelf} /></TouchableOpacity>
+              <TouchableOpacity onPress={()=>navigation.navigate('PublicSiteWorkouts')}><FlatButton   title = 'Explore' style={styles.buttonSelf} /></TouchableOpacity>
               </View>
           </View>
         </SafeAreaView>    
