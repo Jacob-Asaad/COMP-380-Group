@@ -17,7 +17,7 @@ const PublicSiteWorkouts = ({navigation}) => {
 
     function getSiteWorkoutsFromAPI(){ 
         fitnessAPI.get("siteworkout")
-        .then(function(response){
+        .then(function(response){ 
             
             setSiteWorkouts(response.data)
             //console.log(SiteWorkoutCard)
