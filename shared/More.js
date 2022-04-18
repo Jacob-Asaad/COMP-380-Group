@@ -21,7 +21,7 @@ export default function More({navigation}) {
     return (
         <StyledContainer>
             <InnerContainer>
-                <StatusBar backgroundColor="blue"/>
+                
                
             <MiniTitle>Settings</MiniTitle>
             <StyledInputLabel style={styles.texts}>First Name</StyledInputLabel>

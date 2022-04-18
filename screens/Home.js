@@ -16,32 +16,6 @@ const Home = ({isExercise, firstName}) => {
 
     const route = useRoute();
     
-    // initial Workouts
-    const initialWorkouts = [{
-        title: "Push",
-        workoutType: "Weight Lifting",
-        exercises: 0,
-        date: "Fri, 07 Jan 2021 16:32:11 GHT",
-        key: "1"
-    }, {
-        title: "Pull",
-        workoutType: "Weight Lifting",
-        exercises: 0,
-        date: "Fri, 07 Jan 2021 16:32:11 GHT",
-        key: "2"
-    }, {
-        title: "Body Weight",
-        workoutType: "Calisthenics",
-        exercises: 0,
-        date: "Fri, 07 Jan 2021 16:32:11 GHT",
-        key: "3"
-    }, {
-        title: "Stamina Performance",
-        workoutType: "Cardio",
-        exercises: 0,
-        date: "Fri, 07 Jan 2021 16:32:11 GHT",
-        key: "4"
-    }]
 
     //const [workouts, setWorkouts] = useState(initialWorkouts);
     const [workouts, setWorkouts] = useState([]);

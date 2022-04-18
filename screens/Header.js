@@ -1,18 +1,21 @@
 import React from 'react';
 
+import { NavigationContainer, useRoute } from '@react-navigation/native';
+
 import {
     HeaderView,
     HeaderTitle,
     HeaderButton,
-    colors1,
+    colors1, 
 } from './../components/styles';
 
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-const Header = ({}) => {
+const Header = ({navigation, firstName}) => {
+    const route = useRoute();
     return (
        <HeaderView>
-           <HeaderTitle>My Workouts</HeaderTitle>
+           <HeaderTitle>{route.params.firstName}'s Workouts</HeaderTitle>
            <HeaderButton
                
            >

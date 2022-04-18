@@ -17,7 +17,7 @@ import {
 } from '../components/styles';
 
 const Tab = createBottomTabNavigator();
-const { primary, secondary } = Colors;
+const { primary, secondary, green, red, tertiary } = Colors;
 
 const ExploreTabs = ({navigation}) => {
 
@@ -31,22 +31,22 @@ const ExploreTabs = ({navigation}) => {
         >
             <Tab.Screen name = 'Explore' component={SiteWorkouts} options={{
                 tabBarIcon: ({focused}) => (
-                    <MaterialCommunityIcons name = "compass" size={24} color={focused ? primary : secondary }/>
+                    <MaterialCommunityIcons name = "compass" size={24} color={focused ? primary : green }/>
                 ),
             }}/>
             <Tab.Screen name = 'Create Workout' component={Home} initialParams={{lastName: route.params.lastName, firstName: route.params.firstName, email: route.params.email}} options={{
                 tabBarIcon: ({focused}) => (
-                    <MaterialCommunityIcons name = "weight-lifter" size={24} color={focused ? primary : secondary}/>
+                    <MaterialCommunityIcons name = "weight-lifter" size={24} color={focused ? primary : green}/>
                 ),
             }}/>
             <Tab.Screen name = 'Profile' component={Welcome} initialParams={{lastName: route.params.lastName, firstName: route.params.firstName, email: route.params.email}} options={{
                 tabBarIcon: ({focused}) => (
-                    <MaterialCommunityIcons name = "account" size={24} color={focused ? primary : secondary}/>
+                    <MaterialCommunityIcons name = "account" size={24} color={focused ? primary : green}/>
                 ),
             }}/>
             <Tab.Screen name = 'More' component={More} options={{
                 tabBarIcon: ({focused}) => (
-                    <MaterialCommunityIcons name = "dots-horizontal" size={24} color={focused ? primary : secondary}/>
+                    <MaterialCommunityIcons name = "dots-horizontal" size={24} color={focused ? primary : tertiary}/>
                 ),
             }}/>
         </Tab.Navigator>

@@ -12,7 +12,7 @@ export const Colors = {
     brand: "#0000ff",
     green: "#7fff00",
     red: "#FF0000",
-    tempVar: null,
+    tempVar: null, 
 };
 
 const { primary, secondary, tertiary, darkLight, brand, green, red, loginColor,tempVar } = Colors;
@@ -20,7 +20,7 @@ const { primary, secondary, tertiary, darkLight, brand, green, red, loginColor,t
 export const StyledContainer = styled.View`
      flex: 1;
      padding: 15px;
-     padding-top: ${StatusBarHeight + 15}px;
+     padding-top: ${StatusBarHeight + 30}px;
      background-color: ${primary};
 `;
 
@@ -39,7 +39,7 @@ export const PageTitle = styled.Text`
     font-size: 40px;
     text-align: center;
     font-weight: bold;
-    color: ${secondary};
+    color: ${primary};
     padding: 10px;
 
     ${(props) => props.welcome && `
@@ -53,7 +53,7 @@ export const SubTitle = styled.Text`
     margin-bottom: 20px;
     letter-spacing: 1px;
     font-weight: bold;
-    color: ${secondary};
+    color: ${tertiary};
     padding: 1px;
 
     ${(props) => props.welcome && `
@@ -191,7 +191,7 @@ export const Avatar = styled.Image`
     margin: auto;
     border-radius: 50px;
     border-width: 2px;
-    border-color: ${secondary};
+    border-color: ${tertiary};
     margin-bottom: 10px;
     margin-top: 10px;
 `;
