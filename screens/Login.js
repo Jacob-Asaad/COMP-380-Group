@@ -89,7 +89,7 @@ const Login = ({navigation}) => {
 
     return(
         
-        <KeyboardAvoidingWrapper>
+        
         <StyledContainer>
            <StatusBar style="dark" />
             <InnerContainer>
@@ -168,7 +168,7 @@ const Login = ({navigation}) => {
                 </Formik>
             </InnerContainer>
         </StyledContainer>
-        </KeyboardAvoidingWrapper>
+        
         
         
     );
