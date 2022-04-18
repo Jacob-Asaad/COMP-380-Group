@@ -15,7 +15,7 @@ const PublicSiteWorkouts = ({navigation}) => {
         //console.log(response.data);
     //}
 
-    function getSiteWorkoutsFromAPI(){
+    function getSiteWorkoutsFromAPI(){ 
         fitnessAPI.get("siteworkout")
         .then(function(response){
             
