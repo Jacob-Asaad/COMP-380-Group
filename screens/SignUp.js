@@ -90,7 +90,7 @@ const SignUp = ({navigation}) => {
             <InnerContainer>
               
                 <PageTitle>Cloud Fitness</PageTitle>
-                <SubTitle>Account SignUp</SubTitle>
+                <SubTitle>Sign Up</SubTitle>
                 <Formik
                     initialValues={{firstName: '', lastName: '', email: '', password: ''}}
                     onSubmit={(values, {setSubmitting}) => {
@@ -137,6 +137,9 @@ const SignUp = ({navigation}) => {
                         onBlur={handleBlur('email')}
                         values={values.email}
                         keyboardType="email-address"
+                        autoCapitalize='none'
+                        autoCompleteType="email"
+                        autoCorrect = {false}
                     />
 
                     <MyTextInput 

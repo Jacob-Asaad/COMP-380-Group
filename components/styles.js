@@ -20,7 +20,7 @@ const { primary, secondary, tertiary, darkLight, brand, green, red, loginColor,t
 export const StyledContainer = styled.View`
      flex: 1;
      padding: 15px;
-     padding-top: ${StatusBarHeight + 30}px;
+     padding-top: ${StatusBarHeight + 15}px;
      background-color: ${primary};
 `;
 
@@ -36,10 +36,10 @@ export const PageLogo = styled.Image`
 `;
 
 export const PageTitle = styled.Text`
-    font-size: 30px;
+    font-size: 40px;
     text-align: center;
     font-weight: bold;
-    color: ${brand};
+    color: ${secondary};
     padding: 10px;
 
     ${(props) => props.welcome && `
@@ -48,12 +48,12 @@ export const PageTitle = styled.Text`
 `;
 
 export const SubTitle = styled.Text`
-    font-size: 18px;
-    margin-top: 25px;
+    font-size: 25px;
+    margin-top: 15px;
     margin-bottom: 20px;
     letter-spacing: 1px;
     font-weight: bold;
-    color: ${tertiary};
+    color: ${secondary};
     padding: 1px;
 
     ${(props) => props.welcome && `
@@ -170,12 +170,12 @@ export const TextLink = styled.TouchableOpacity`
 `;
 
 export const TextLinkContent = styled.Text`
-    color: ${green};
+    color: ${secondary};
     font-size: 15px;
 `;
 
 export const TextLinkContent1 = styled.Text`
-    color: ${red};
+    color: ${secondary};
     font-size: 15px;
 `;
 
@@ -377,4 +377,32 @@ export const ModalActionGroup = styled.View`
 export const ModalIcon = styled.View`
   align-items: center;
   margin-bottom: 30px;
+`;
+
+export const MiniTitle = styled.Text`
+  font-size: 25px;
+  margin-bottom: 20px;
+  
+`;
+
+export const MoreBox = styled.View`
+  flex-direction: row;
+  align-self: stretch;
+  margin: 10px;
+  padding: 10px;
+  padding-right: 60%;
+  border-width: 1px;
+  background-color: ${colors1.secondary};
+`;
+
+export const MoreText = styled.Text`
+ font-size: 15px;
+  align-self: flex-start;
+`;
+export const MoreTextInput = styled.TextInput`
+    background-color: ${secondary};
+    padding: 6px;
+    align-self: stretch;
+    
+    color: ${tertiary};
 `;

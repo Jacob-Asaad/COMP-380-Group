@@ -18,25 +18,25 @@ const Home = ({isExercise, firstName}) => {
     
     // initial Workouts
     const initialWorkouts = [{
-        title: "HandStand Push Ups",
+        title: "Push",
         workoutType: "Weight Lifting",
         exercises: 0,
         date: "Fri, 07 Jan 2021 16:32:11 GHT",
         key: "1"
     }, {
-        title: "Muscle Ups",
-        workoutType: "Calisthenics",
+        title: "Pull",
+        workoutType: "Weight Lifting",
         exercises: 0,
         date: "Fri, 07 Jan 2021 16:32:11 GHT",
         key: "2"
     }, {
-        title: "Planche Push Ups",
-        workoutType: "Aerobics",
+        title: "Body Weight",
+        workoutType: "Calisthenics",
         exercises: 0,
         date: "Fri, 07 Jan 2021 16:32:11 GHT",
         key: "3"
     }, {
-        title: "One Armed Pull Up",
+        title: "Stamina Performance",
         workoutType: "Cardio",
         exercises: 0,
         date: "Fri, 07 Jan 2021 16:32:11 GHT",

@@ -118,6 +118,9 @@ const Login = ({navigation}) => {
                         onBlur={handleBlur('email')}
                         values={values.email}
                         keyboardType="email-address"
+                        autoCapitalize='none'
+                        autoCompleteType="email"
+                        autoCorrect = {false}
                     />
 
                        <MyTextInput 
