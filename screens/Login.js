@@ -96,6 +96,7 @@ const Login = ({navigation}) => {
                 <PageLogo resizeMode="cover" source={require('./../assets/CloudFitnessLogo.png')} />
                 {/* <PageTitle>Cloud Fitness</PageTitle> */}
                 <SubTitle>Account Login</SubTitle>
+                <KeyboardAvoidingWrapper>
                 <Formik
                     initialValues={{ email: '', password: '' }}
                     onSubmit={(values, { setSubmitting }) => {
@@ -122,7 +123,7 @@ const Login = ({navigation}) => {
                         autoCompleteType="email"
                         autoCorrect = {false}
                     />
-
+                       
                        <MyTextInput 
                         label="Password"
                         icon="lock"
@@ -137,6 +138,7 @@ const Login = ({navigation}) => {
                         setHidePassword={setHidePassword}
 
                     />
+                    
                     <ExtraView>
                         {/* <ExtraText>Forgot your password? </ExtraText> */}
                         <TextLink>
@@ -166,6 +168,7 @@ const Login = ({navigation}) => {
                 </StyledFormArea>)}
 
                 </Formik>
+                </KeyboardAvoidingWrapper>
             </InnerContainer>
         </StyledContainer>
         
