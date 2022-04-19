@@ -18,7 +18,7 @@ export default function Splash({navigation}) {
             </View>
              <StyledFormArea>
              <StyledButtonS  onPress={()=>navigation.navigate('Login')}><ButtonText>Login</ButtonText></StyledButtonS> 
-              <StyledButtonS1 onPress={()=>navigation.navigate('SignUp')}><ButtonText>SignUp</ButtonText></StyledButtonS1>
+              <StyledButtonS1 onPress={()=>navigation.navigate('SignUp')}><ButtonText>Sign Up</ButtonText></StyledButtonS1>
               <Line /> 
               <StyledButtonS2 onPress={()=>navigation.navigate('PublicSiteWorkouts')}><ButtonText>Explore</ButtonText></StyledButtonS2> 
               </StyledFormArea>

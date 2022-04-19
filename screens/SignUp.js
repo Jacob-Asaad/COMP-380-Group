@@ -26,7 +26,7 @@ import {
     MsgBox,
     Line,
     ButtonText1,
-    StyledButton1,
+    StyledButton11,
     ExtraView,
     ExtraText,
     TextLink,
@@ -174,15 +174,15 @@ const SignUp = ({navigation}) => {
                     <MsgBox type={messageType}>{message}</MsgBox>
                     
 
-                    {!isSubmitting && (<StyledButton onPress={handleSubmit}>
+                    {!isSubmitting && (<StyledButton11 onPress={handleSubmit}>
                         <ButtonText>
                             Create Account
                         </ButtonText>
-                    </StyledButton>)}
+                    </StyledButton11>)}
 
-                    {isSubmitting && (<StyledButton disabled={true}>
+                    {isSubmitting && (<StyledButton11 disabled={true}>
                         <ActivityIndicator size="large" color={primary} />
-                    </StyledButton>)}
+                    </StyledButton11>)}
 
                     <Line />
                     

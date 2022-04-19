@@ -126,6 +126,17 @@ export const StyledButton = styled.TouchableOpacity`
     
 `;
 
+export const StyledButton11 = styled.TouchableOpacity`
+    padding: 15px;
+    background-color: ${drkcyan};
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    margin-vertical: 5px;
+    height: 60px;
+    
+`;
+
 export const StyledButtonS = styled.TouchableOpacity`
     padding: 15px;
     background-color: ${loginColor};
