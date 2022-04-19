@@ -84,13 +84,14 @@ const SignUp = ({navigation}) => {
      };
 
     return(
-        <KeyboardAvoidingWrapper>
+        
         <StyledContainer>
            <StatusBar style="dark" />
             <InnerContainer>
               
                 <PageTitle>Cloud Fitness</PageTitle>
                 <SubTitle>Sign Up</SubTitle>
+                <KeyboardAvoidingWrapper>
                 <Formik
                     initialValues={{firstName: '', lastName: '', email: '', password: ''}}
                     onSubmit={(values, {setSubmitting}) => {
@@ -196,9 +197,10 @@ const SignUp = ({navigation}) => {
                 </StyledFormArea>)}
 
                 </Formik>
+                </KeyboardAvoidingWrapper>
             </InnerContainer>
         </StyledContainer>
-        </KeyboardAvoidingWrapper>
+        
     );
 };
 

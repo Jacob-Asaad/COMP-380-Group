@@ -7,10 +7,10 @@ import {Formik} from 'formik';
 
 import {
     InnerContainer,
-    PageTitle,
+    PageTitle1,
     SubTitle,
     StyledFormArea,
-    StyledButton,
+    StyledButton1,
     ButtonText,
     Line,
     WelcomeContainer,
@@ -33,18 +33,18 @@ const Welcome = ({ navigation, firstName, lastName, email }) => {
                 
                 <WelcomeImage resizeMode="cover" source={require('./../assets/CloudFitnessLogo.png')}/>
                 <WelcomeContainer>
-                <PageTitle color={"#000f"} welcome={true}>Welcome! Buddy</PageTitle>
+                <PageTitle1 color={"#000f"} welcome={true}>Welcome! Buddy</PageTitle1>
                 <SubTitle welcome={true}>{route.params.firstName + ' ' + route.params.lastName|| 'Joe Weinstock'}</SubTitle>
                 <SubTitle welcome={true}>{route.params.email || 'joeweinstock@widgetfactory.com'}</SubTitle>
                 <StyledFormArea>
                 <Avatar resizeMode="cover" source={require('./../assets/CloudFitnessLogo.png')} />
                 <Line />
                 
-                    <StyledButton onPress={() => navigation.navigate("Login")}>
+                    <StyledButton1 onPress={() => navigation.navigate("Splash")}>
                         <ButtonText>
                             Logout
                         </ButtonText>
-                    </StyledButton>
+                    </StyledButton1>
                     
                     
                     
@@ -55,11 +55,7 @@ const Welcome = ({ navigation, firstName, lastName, email }) => {
                 </WelcomeContainer>
             </InnerContainer>
             
-            <Header 
-                firstName={firstName}
-                lastName={lastName}
-                email={email}
-            />
+            
         </>
     );
 };

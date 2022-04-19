@@ -12,15 +12,18 @@ export const Colors = {
     brand: "#0000ff",
     green: "#7fff00",
     red: "#FF0000",
+    orange: `#ff8c00`,
+    crim: `#dc143c`,
+    drkcyan: `#008b8b`,
     tempVar: null, 
 };
 
-const { primary, secondary, tertiary, darkLight, brand, green, red, loginColor,tempVar } = Colors;
+const { primary, crim, drkcyan, secondary, tertiary, darkLight, brand, green, red, loginColor,tempVar } = Colors;
 
 export const StyledContainer = styled.View`
      flex: 1;
-     padding: 15px;
-     padding-top: ${StatusBarHeight + 30}px;
+     padding: 25px;
+     padding-top: ${StatusBarHeight + 10}px;
      background-color: ${primary};
 `;
 
@@ -47,6 +50,18 @@ export const PageTitle = styled.Text`
     `}
 `;
 
+export const PageTitle1 = styled.Text`
+    font-size: 40px;
+    text-align: center;
+    font-weight: bold;
+    color: ${drkcyan};
+    padding: 10px;
+
+    ${(props) => props.welcome && `
+      font-size: 35px;
+    `}
+`;
+
 export const SubTitle = styled.Text`
     font-size: 25px;
     margin-top: 15px;
@@ -64,14 +79,14 @@ export const SubTitle = styled.Text`
 `;
 
 export const StyledFormArea = styled.View`
-    width: 90%;
+    width: 99%;
 `;
 // remember we are getting this from (styled-components).(react-native)
 export const StyledTextInput = styled.TextInput`
     background-color: ${secondary};
     padding: 15px;
-    padding-left: 55px;
-    padding-right: 55px;
+    padding-left: 75px;
+    padding-right: 75px;
     border-radius: 5px;
     font-size: 16px;
     height: 60px;
@@ -111,9 +126,58 @@ export const StyledButton = styled.TouchableOpacity`
     
 `;
 
+export const StyledButtonS = styled.TouchableOpacity`
+    padding: 15px;
+    background-color: ${loginColor};
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    margin-horizontal: 17px;
+    margin-vertical: 17px;
+    height: 60px;
+    
+`;
+
+export const StyledButtonS1 = styled.TouchableOpacity`
+    padding: 15px;
+    background-color: ${crim};
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    margin-vertical: 17px;
+    margin-horizontal: 17px;
+    height: 60px;
+    
+`;
+
+
+export const StyledButtonS2 = styled.TouchableOpacity`
+    padding: 15px;
+    background-color: ${drkcyan};
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    margin-horizontal: 17px;
+    margin-vertical: 17px;
+    height: 60px;
+    
+`;
+
+
+export const StyledButtonG = styled.TouchableOpacity`
+    padding: 15px;
+    background-color: ${Colors.orange};
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    margin-vertical: 25px;
+    height: 60px;
+    
+`;
+
 export const StyledButton1 = styled.TouchableOpacity`
     padding: 15px;
-    background-color: ${red};
+    background-color: ${crim};
     justify-content: center;
     align-items: center;
     border-radius: 5px;
@@ -131,6 +195,13 @@ export const ButtonText = styled.Text`
 
 export const ButtonText1 = styled.Text`
     color: ${green};
+    font-size: 16px;
+
+    
+`;
+
+export const ButtonText2 = styled.Text`
+    color: ${drkcyan};
     font-size: 16px;
 
     
@@ -197,7 +268,7 @@ export const Avatar = styled.Image`
 `;
 
 export const WelcomeImage = styled.Image`
-    height: 50%;
+    height: 35%;
     min-width: 100%;
 `;
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet,View, Text, SafeAreaView, Image, Button, TouchableOpacity, Platform, Dimensions } from 'react-native';
 import FlatButton from './Button.js';
+import { StyledButtonG, StyledButtonS, StyledButtonS1, StyledButtonS2, ButtonText, StyledContainer, InnerContainer, StyledFormArea, Line } from '../components/styles.js';
 
 const win = Dimensions.get('window');
 
@@ -9,19 +10,21 @@ export default function Splash({navigation}) {
   
     return (
         
-        <SafeAreaView style={styles.Background}>
-          <View>
-            {/* <Text  style={styles.logo}> Cloud Fitness </Text> */}
+        <StyledContainer>
+          <InnerContainer>
+           
             <View>
               <Image style={styles.logoImage} resizeMode="stretch" source={require("../assets/CloudFitnessLogo.png")}/>
             </View>
-            <View style = {styles.buttons}>
-             <TouchableOpacity  onPress={()=>navigation.navigate('Login')}><FlatButton title = 'Login'  style={styles.buttonSelf} /></TouchableOpacity> 
-              <TouchableOpacity onPress={()=>navigation.navigate('SignUp')}><FlatButton   title = 'Sign Up' style={styles.buttonSelf}/></TouchableOpacity> 
-              <TouchableOpacity onPress={()=>navigation.navigate('PublicSiteWorkouts')}><FlatButton   title = 'Explore' style={styles.buttonSelf} /></TouchableOpacity>
-              </View>
-          </View>
-        </SafeAreaView>    
+             <StyledFormArea>
+             <StyledButtonS  onPress={()=>navigation.navigate('Login')}><ButtonText>Login</ButtonText></StyledButtonS> 
+              <StyledButtonS1 onPress={()=>navigation.navigate('SignUp')}><ButtonText>SignUp</ButtonText></StyledButtonS1>
+              <Line /> 
+              <StyledButtonS2 onPress={()=>navigation.navigate('PublicSiteWorkouts')}><ButtonText>Explore</ButtonText></StyledButtonS2> 
+              </StyledFormArea>
+              
+          </InnerContainer>
+        </StyledContainer>    
   
         
         

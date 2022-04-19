@@ -92,7 +92,9 @@ const Login = ({navigation}) => {
         
         <StyledContainer>
            <StatusBar style="dark" />
+           
             <InnerContainer>
+            
                 <PageLogo resizeMode="cover" source={require('./../assets/CloudFitnessLogo.png')} />
                 {/* <PageTitle>Cloud Fitness</PageTitle> */}
                 <SubTitle>Account Login</SubTitle>
@@ -170,6 +172,7 @@ const Login = ({navigation}) => {
                 </Formik>
                 </KeyboardAvoidingWrapper>
             </InnerContainer>
+            
         </StyledContainer>
         
         
