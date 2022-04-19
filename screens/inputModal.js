@@ -21,7 +21,7 @@ import fitnessAPI from '../apis/fitness';
 import { axios } from 'axios';
 
 
-const InputModal = ({modalVisible, getWorkoutsFromAPI, workoutEmail, setModalVisible, workoutInputValue, setWorkoutInputValue, workoutTypeValue, setWorkoutTypeValue, workoutToBeEdited, setWorkoutToBeEdited, workoutExerciseValue, setWorkoutExerciseValue, handleAddWorkout, handleEditWorkout, workouts, exerciseVisible, workoutIDValue, setWorkoutIDValue, setExerciseVisible, }) => {
+const InputModal = ({navigation, firstName, setSecondModalVis, secondModalVisible, modalVisible, getWorkoutsFromAPI, workoutEmail, setModalVisible, workoutInputValue, setWorkoutInputValue, workoutTypeValue, setWorkoutTypeValue, workoutToBeEdited, setWorkoutToBeEdited, workoutExerciseValue, setWorkoutExerciseValue, handleAddWorkout, handleEditWorkout, workouts, exerciseVisible, workoutIDValue, setWorkoutIDValue, setExerciseVisible, }) => {
     const route = useRoute();
     
     
@@ -50,6 +50,7 @@ const InputModal = ({modalVisible, getWorkoutsFromAPI, workoutEmail, setModalVis
         const puturl = 'workout/' + workoutIDValue;
         fitnessAPI.put(puturl, workout)
         .then((res) => {
+            console.log(firstName)
             //console.log(res);
             //console.log(workout)
         })
@@ -69,6 +70,14 @@ const InputModal = ({modalVisible, getWorkoutsFromAPI, workoutEmail, setModalVis
         setWorkoutToBeEdited(null);
         // this one too
     }
+
+    const handleSecondModal = () => {
+        setSecondModalVis(true);
+    };
+
+    const handleCloseSecondModal = () => {
+        setSecondModalVis(false);
+    };
 
     const handleStartExercise = () => {
         setModalVisible(false);
@@ -168,13 +177,42 @@ const InputModal = ({modalVisible, getWorkoutsFromAPI, workoutEmail, setModalVis
                         <ModalAction color={colors1.primary} onPress={handleCloseModal}>
                              <AntDesign name="close" size={28} color={colors1.tertiary} />
                         </ModalAction>
-                       
+                        <ModalAction color={colors1.primary} onPress={() => {setSecondModalVis(true)}}>
+                            <AntDesign name="check" size={28} color={colors1.tertiary} />
+                        </ModalAction>  
                         <ModalAction color={colors1.primary} onPress={handleWorkoutSubmit}>
                             <AntDesign name="plus" size={28} color={colors1.tertiary} />
                         </ModalAction>
                     </ModalActionGroup>
                     </ModalView>
                 </ModalContainer>
+            </Modal>
+            <Modal
+                animationType="slide"
+                transparent={true}
+                visible={secondModalVisible}
+                onRequestClose={handleCloseModal}
+            >
+            <ModalContainer>
+                <ModalView>
+                <ModalIcon>
+                          <HeaderTitle>Workout ID: {workoutIDValue}</HeaderTitle>
+                          <HeaderTitle>{workoutInputValue} Exercises</HeaderTitle>
+                         <AntDesign name="edit" size={30} color={colors1.tertiary} />
+                    </ModalIcon>
+                    <ModalActionGroup>
+                        <ModalAction color={colors1.primary} onPress={handleCloseModal}>
+                             <AntDesign name="close" size={28} color={colors1.tertiary} />
+                        </ModalAction>
+                        <ModalAction color={colors1.primary} onPress={() => {setSecondModalVis(false)}}>
+                            <AntDesign name="check" size={28} color={colors1.tertiary} />
+                        </ModalAction>  
+                        <ModalAction color={colors1.primary} onPress={handleWorkoutSubmit}>
+                            <AntDesign name="plus" size={28} color={colors1.tertiary} />
+                        </ModalAction>
+                    </ModalActionGroup>
+                </ModalView>
+            </ModalContainer>
             </Modal>
             
             

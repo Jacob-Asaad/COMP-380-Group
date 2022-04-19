@@ -53,6 +53,7 @@ const Home = ({isExercise, firstName}) => {
     // we want this to be initialized to false because
     // we dont want it to show initially
     const [modalVisible, setModalVisible] = useState(false);
+    const [secondModalVisible, setSecondModalVis] = useState(false);
     const [workoutInputValue, setWorkoutInputValue] = useState();
     const [workoutTypeValue, setWorkoutTypeValue] = useState();
     const [workoutExerciseValue, setWorkoutExerciseValue] = useState();
@@ -115,11 +116,14 @@ const Home = ({isExercise, firstName}) => {
          handleWorkoutEdit={handleWorkoutEdit} 
         />
         <InputModal
+            firstName={firstName}
             getWorkoutsFromAPI={getWorkoutsFromAPI}
             workoutIDValue={workoutIDValue}
             workoutEmail={workoutEmail}
             modalVisible={modalVisible}
             setModalVisible={setModalVisible}
+            secondModalVisible={secondModalVisible}
+            setSecondModalVis={setSecondModalVis}
             workoutInputValue={workoutInputValue}
             workoutTypeValue={workoutTypeValue}
             setWorkoutInputValue={setWorkoutInputValue}

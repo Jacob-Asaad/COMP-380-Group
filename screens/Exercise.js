@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
+import { NavigationContainer, useRoute } from '@react-navigation/native';
 
 // API client
 import axios from 'axios';
@@ -44,8 +45,9 @@ const { brand, darkLight, primary } = Colors;
 // keyboard avoiding view
 import KeyboardAvoidingWrapper from '../components/KeyboardAvoidingWrapper';
 
-const Exercise = ({ navigation, route }) => {
+const Exercise = ({ navigation, route, workoutIDValue }) => {
     //const { email, id } = route.params;
+    console.log(workoutIDValue);
 
     const loadExercises = function (credentials, setSubmitting) {
         //handleMessage(null);
