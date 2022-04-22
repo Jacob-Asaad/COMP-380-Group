@@ -44,9 +44,9 @@ const ExploreTabs = ({navigation}) => {
                     <MaterialCommunityIcons name = "account" size={24} color={focused ? primary : green}/>
                 ),
             }}/>
-            <Tab.Screen name = 'More' component={More} options={{
+            <Tab.Screen name = 'More' component={More} initialParams={{lastName: route.params.lastName, firstName: route.params.firstName, email: route.params.email}} options={{
                 tabBarIcon: ({focused}) => (
-                    <MaterialCommunityIcons name = "dots-horizontal" size={24} color={focused ? primary : tertiary}/>
+                    <MaterialCommunityIcons name = "dots-horizontal" size={24} color={focused ? primary : green}/>
                 ),
             }}/>
         </Tab.Navigator>

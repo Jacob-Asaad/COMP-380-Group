@@ -471,14 +471,14 @@ export const MoreBox = styled.View`
   flex-direction: row;
   align-self: stretch;
   margin: 10px;
-  padding: 10px;
-  padding-right: 60%;
-  border-width: 1px;
+  padding: 15px;
+
+  border-width: 2px;
   background-color: ${colors1.secondary};
 `;
 
 export const MoreText = styled.Text`
- font-size: 15px;
+ font-size: 16px;
   align-self: flex-start;
 `;
 export const MoreTextInput = styled.TextInput`

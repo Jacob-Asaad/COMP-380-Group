@@ -1,8 +1,9 @@
 import { StatusBar } from "expo-status-bar";
-import react from "react";
+import react, {useState} from "react";
 import SecureInputs from './SecureTextInput';
-
+import {Formik} from 'formik';
 import { StyleSheet, Platform, Text, View, SafeAreaView } from 'react-native';
+import {  useRoute } from '@react-navigation/native';
 import {
     StyledContainer,
     InnerContainer,
@@ -16,8 +17,11 @@ import {
 
 
 
-export default function More({navigation}) {
-  
+const More = ({firstName, LastName, email }) => {
+    const route = useRoute();
+    const [hideNew, setNew] = useState(false);
+
+   
     return (
         <StyledContainer>
             <InnerContainer>
@@ -26,30 +30,41 @@ export default function More({navigation}) {
             <MiniTitle>Settings</MiniTitle>
             <StyledInputLabel style={styles.texts}>First Name</StyledInputLabel>
             <MoreBox>
-                <MoreText>First Name</MoreText>
+                <MoreText>{route.params.firstName}</MoreText>
             </MoreBox>
-            <StyledInputLabel style={styles.texts}>Last Name</StyledInputLabel>
+            <StyledInputLabel style={styles.texts}>Second Name</StyledInputLabel>
             <MoreBox>
-                <MoreText>Second Name</MoreText>
+                <MoreText>{route.params.lastName}</MoreText>
             </MoreBox>
             <StyledInputLabel style={styles.texts}>Email</StyledInputLabel>
             <MoreBox>
-                <MoreText>Email</MoreText>
+                <MoreText  style={styles.rend}>{route.params.email}</MoreText>
             </MoreBox>
-           
-            <StyledInputLabel style={styles.texts}>Change Password</StyledInputLabel>
-                <MoreText style={styles.changePass}>New Password</MoreText>
+           <StyledInputLabel style={styles.texts}>Change Password</StyledInputLabel>
+            
+            {
+                hideNew ? (
+                    <View>
+                
+                <Text> </Text>
                 <SecureInputs 
-                title="* * * * * * * *"
+                title="New Password"
                 />
-                <MoreText>Retype Password</MoreText>
+                <Text> </Text>
+                <SecureInputs title="Retype Password"/>
+                <Text> </Text>
+                <StyledButton onPress={()=> setNew(!hideNew)}><ButtonText>Submit</ButtonText></StyledButton>
+                </View>
+            ) : (
+                <View>
+                <Text></Text>
                 <SecureInputs 
-                title="* * * * * * * *"
+                title="Current Password"
                 />
-                <StyledButton>
-                <ButtonText >Submit</ButtonText>
-            </StyledButton>
-
+                <StyledButton onPress={()=> setNew(!hideNew)}><ButtonText>Submit</ButtonText></StyledButton>
+                </View>
+            )
+            }
                 
             
                
@@ -66,5 +81,9 @@ const styles = StyleSheet.create({
     },
     changePass: {
         marginTop: 15,
-    }
+    },
+    rend: {
+        
+    },
 });
+export default More;
