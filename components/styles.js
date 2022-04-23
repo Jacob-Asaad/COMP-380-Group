@@ -15,10 +15,12 @@ export const Colors = {
     orange: `#ff8c00`,
     crim: `#dc143c`,
     drkcyan: `#008b8b`,
+    grn: "#1e90ff",
+    c1prim: "#00ced1",
     tempVar: null, 
 };
 
-const { primary, crim, drkcyan, secondary, tertiary, darkLight, brand, green, red, loginColor,tempVar } = Colors;
+const { primary, crim, grn, c1prim, drkcyan, secondary, tertiary, darkLight, brand, green, red, loginColor,tempVar } = Colors;
 
 export const StyledContainer = styled.View`
      flex: 1;
@@ -348,6 +350,16 @@ export const ListContainer = styled.View`
 
 export const ListView = styled.TouchableHighlight`
   background-color: ${colors1.secondary};
+  min-height: 85px;
+  width: 100%;
+  padding: 15px;
+  justify-content: space-around;
+  margin-bottom: 15px;
+  border-radius: 10px;
+`;
+
+export const ListView1 = styled.TouchableHighlight`
+  background-color: ${colors1.primary};
   min-height: 85px;
   width: 100%;
   padding: 15px;

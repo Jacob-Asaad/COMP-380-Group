@@ -20,6 +20,8 @@ const Home = ({isExercise, firstName}) => {
     //const [workouts, setWorkouts] = useState(initialWorkouts);
     const [workouts, setWorkouts] = useState([]);
     const [workoutEmail, setWorkoutEmail] = useState();
+    const [exerciseQuantityValue, setExerciseQuantityValue] = useState(Number);
+    
 
     useEffect(()=>{
         getWorkoutsFromAPI()
@@ -30,7 +32,8 @@ const Home = ({isExercise, firstName}) => {
         fitnessAPI.get("workout/" + route.params.email)
         .then(function(response){
             setWorkouts(response.data)
-            //console.log(workouts)
+            //setExerciseQuantityValue(response.data.exercises)
+            console.log(workouts)
             setWorkoutEmail(route.params.email)
             
             
@@ -54,7 +57,13 @@ const Home = ({isExercise, firstName}) => {
     // we dont want it to show initially
     const [modalVisible, setModalVisible] = useState(false);
     const [secondModalVisible, setSecondModalVis] = useState(false);
+    const [thirdModalVisible, setThirdModalVis] = useState(false);
     const [workoutInputValue, setWorkoutInputValue] = useState();
+    const [exerciseNameValue, setExerciseNameValue] = useState();
+    const [setsValue, setSetsValue] = useState();
+    const [targetRepetitionsValue, setTargetRepetionsValue] = useState();
+    const [startWeightValue, setStartWeightValue] = useState();
+    const [restIntervalValue, setRestIntervalValue] = useState();
     const [workoutTypeValue, setWorkoutTypeValue] = useState();
     const [workoutExerciseValue, setWorkoutExerciseValue] = useState();
     const [workoutIDValue, setWorkoutIDValue] = useState();
@@ -66,6 +75,8 @@ const Home = ({isExercise, firstName}) => {
         setWorkouts(newWorkouts);
         setModalVisible(false);
     }
+    
+
     
     // handleWorkoutEdit
     // 1st: we want to store the item to be edited in a state variable
@@ -81,6 +92,8 @@ const Home = ({isExercise, firstName}) => {
         setWorkoutTypeValue(item.workoutType);
         //setWorkoutIDValue(item.key);
     }
+
+    
 
     const handleEditWorkout = (editedWorkout) => {
         const newWorkouts = [...workouts];
@@ -102,7 +115,7 @@ const Home = ({isExercise, firstName}) => {
     return (
         <Container>
         <>
-       <Header 
+        <Header 
        handleClearWorkouts={handleClearWorkouts}
        firstName={firstName}
        
@@ -116,7 +129,21 @@ const Home = ({isExercise, firstName}) => {
          handleWorkoutEdit={handleWorkoutEdit} 
         />
         <InputModal
+            handleWorkoutEdit={handleWorkoutEdit}
+            workouts={workouts}
             firstName={firstName}
+            exerciseNameValue={exerciseNameValue}
+            setExerciseNameValue={setExerciseNameValue}
+            exerciseQuantityValue={exerciseQuantityValue}
+            setExerciseQuantityValue={setExerciseQuantityValue}
+            setsValue={setsValue}
+            setSetsValue={setSetsValue}
+            restIntervalValue={restIntervalValue}
+            setRestIntervalValue={setRestIntervalValue}
+            targetRepetitionsValue={targetRepetitionsValue}
+            setTargetRepetitionsValue={setTargetRepetionsValue}
+            startWeightValue={startWeightValue}
+            setStartWeightValue={setStartWeightValue}
             getWorkoutsFromAPI={getWorkoutsFromAPI}
             workoutIDValue={workoutIDValue}
             workoutEmail={workoutEmail}
@@ -124,6 +151,8 @@ const Home = ({isExercise, firstName}) => {
             setModalVisible={setModalVisible}
             secondModalVisible={secondModalVisible}
             setSecondModalVis={setSecondModalVis}
+            thirdModalVisible={thirdModalVisible}
+            setThirdModalVis={setThirdModalVis}
             workoutInputValue={workoutInputValue}
             workoutTypeValue={workoutTypeValue}
             setWorkoutInputValue={setWorkoutInputValue}
@@ -134,7 +163,7 @@ const Home = ({isExercise, firstName}) => {
             workoutToBeEdited={workoutToBeEdited}
             setWorkoutToBeEdited={setWorkoutToBeEdited}
             handleEditWorkout={handleEditWorkout}
-            workouts={workouts}
+            setWorkoutIDValue={setWorkoutIDValue}
             exerciseVisible={exerciseVisible}
             setExerciseVisible={setExerciseVisible}
         />
