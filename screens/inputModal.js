@@ -38,8 +38,10 @@ const InputModal = ({navigation, thirdModalVisible, handleWorkoutEdit, exerciseQ
             
         
     
-        const getExercisesFromAPI = () => {
-            const urle = "exercise/" + workoutIDValue;
+        const getExercisesFromAPI = (id) => {
+            //console.log(this.workout);
+            //const urle = "exercise/" + workoutIDValue;
+            const urle = "exercise/" + id;
             fitnessAPI.get(urle)
             .then((response) => {
                //console.log(response.data)
@@ -100,6 +102,7 @@ const InputModal = ({navigation, thirdModalVisible, handleWorkoutEdit, exerciseQ
         userEmail: route.params.email,
         workoutName: workoutInputValue,
         workoutType: workoutTypeValue,
+        key: workoutIDValue,
         
     });
 
@@ -111,11 +114,16 @@ const InputModal = ({navigation, thirdModalVisible, handleWorkoutEdit, exerciseQ
         startWeight: startWeightValue,
         restInterval: restIntervalValue
     })
-    const postWorkout = () => {
+    const postWorkout = (workout) => {
         const url = 'workout';
         fitnessAPI.post(url, workout)
         .then((res) => {
-            setWorkoutIDValue(res.data._id);
+            
+            console.log(res.data._id);
+            //console.log(workoutIDValue);
+            getExercisesFromAPI(res.data._id);
+            handleWorkoutEdit(res.data);
+            setModalVisible(false);
             //console.log(res);
             //console.log(workout)
             
@@ -128,14 +136,18 @@ const InputModal = ({navigation, thirdModalVisible, handleWorkoutEdit, exerciseQ
 
     const putWorkout = () => {
         const puturl = 'workout/' + workoutIDValue;
+        //console.log(workout.exercises);
+        //incrementExerciseCount();
+        //console.log(exerciseQuantityValue);
         fitnessAPI.put(puturl, workout)
         .then((res) => {
+            
             //console.log(res.data)
             //console.log(res);
-            console.log(workout)
+            
         })
         .catch((error) => {
-            console.log(error);
+            
             //console.log(workout);
         })
     }
@@ -143,6 +155,7 @@ const InputModal = ({navigation, thirdModalVisible, handleWorkoutEdit, exerciseQ
     const handleCloseSecondMod = () => {
         setSecondModalVis(false);
         setExercises([]);
+        setModalVisible(true);
         //console.log(exercises);
     } 
 
@@ -160,23 +173,34 @@ const InputModal = ({navigation, thirdModalVisible, handleWorkoutEdit, exerciseQ
     
     const handleCloseModal = () => {
         setModalVisible(false);
-        setTimeout(() => {getWorkoutsFromAPI(workouts)}, 100);
+        //setTimeout(() => {getWorkoutsFromAPI(workouts)}, 100);
+        getWorkoutsFromAPI(workouts);
         setWorkoutInputValue("");
         setWorkoutTypeValue("");
         setWorkoutExerciseValue(0);
         // setOtherValues in workouts everywhere you find this
         setWorkoutToBeEdited(null);
+        console.log("closed")
         // this one too
     }
 
     const handleSecondModal = () => {
         if (!workoutToBeEdited) {
             
-            setTimeout(() => {postWorkout(workout)}, 100);
+            //postWorkout(workout);
+            handleWorkoutSubmit();
             handleCloseModal();
+            //setTimeout(() => {handleWorkoutEdit(workout)}, 500);
             handleWorkoutEdit(workout);
+        } else {
+        
+        //setTimeout(() => {setSecondModalVis(true)}, 1000);
+        //setTimeout(() => {getExercisesFromAPI(workoutIDValue)}, 2000);
+        //console.log("Theory True");
+        getExercisesFromAPI(workoutIDValue);
         }
-        getExercisesFromAPI();
+        //getExercisesFromAPI(workoutIDValue);
+        //setTimeout(() => {setSecondModalVis(true)}, 1000);
         setSecondModalVis(true);
     };
 
@@ -207,40 +231,48 @@ const InputModal = ({navigation, thirdModalVisible, handleWorkoutEdit, exerciseQ
         //setWorkoutIDValue(item.key);
     }
 
+    const incrementExerciseCount = () => {
+        setExerciseQuantityValue(exerciseQuantityValue + 1);
+    }
+
     const handleExerciseSubmit = () => {
-        console.log(exerciseQuantityValue)
+        //console.log(exerciseQuantityValue)
         
         if (!exerciseToBeEdited) {
-            const val = exerciseQuantityValue + 1;
-           //console.log(val)
-            setTimeout(() => {setExerciseQuantityValue(val)}, 500);
-            setTimeout(() => {console.log(exerciseQuantityValue)}, 200);
-            setTimeout(() => {postExercise(exercise)}, 100);
             
-            upDateWorkout({
-                exercises: exerciseQuantityValue,
-                userEmail: route.params.email,
-                workoutName: workoutInputValue,
-                workoutType: workoutTypeValue,
-                });
-            setTimeout(() => {putWorkout(workout)}, 100);
+            incrementExerciseCount();
+           
+            postExercise(exercise);
+
+            
+            //upDateWorkout({
+               // exercises: exerciseQuantityValue,
+              //  userEmail: route.params.email,
+                //workoutName: workoutInputValue,
+               // workoutType: workoutTypeValue,
+               // });
+            //setTimeout(() => {putWorkout(workout)}, 100);
+            putWorkout(workout);
             upDateExercise(null);
             
         } else {
-            setTimeout(() => {putExercise(exercise)}, 100);
+            //setTimeout(() => {putExercise(exercise)}, 100);
+            putExercise(exercise);
             
             setExerciseToBeEdited(null);
             
             
             upDateExercise(null);
         }
-         setTimeout(() => {getExercisesFromAPI(exercises)}, 500);
+         //setTimeout(() => {getExercisesFromAPI(workoutIDValue)}, 500);
+         getExercisesFromAPI(workoutIDValue);
          setExerciseNameValue("");
          setSetsValue("");
          setTargetRepetitionsValue("");
          setStartWeightValue("");
          setRestIntervalValue("");
-         setTimeout(() => {getWorkoutsFromAPI(workouts)}, 100);
+         //setTimeout(() => {getWorkoutsFromAPI(workouts)}, 100);
+         getWorkoutsFromAPI(workouts);
          setThirdModalVis(false);
     }
 
@@ -262,7 +294,8 @@ const InputModal = ({navigation, thirdModalVisible, handleWorkoutEdit, exerciseQ
            // workoutName: workoutInputValue,
            // workoutType: workoutTypeValue,
         // });
-          setTimeout(() => {postWorkout(workout)}, 100);
+          //setTimeout(() => {postWorkout(workout)}, 100);
+          postWorkout(workout);
           upDateWorkout(null);
          
          } else {
@@ -274,12 +307,14 @@ const InputModal = ({navigation, thirdModalVisible, handleWorkoutEdit, exerciseQ
                  key: workoutToBeEdited.key
              }) **/
              //console.log(workoutIDValue);
-             setTimeout(() => {putWorkout(workout)}, 100);
+             //setTimeout(() => {putWorkout(workout)}, 100);
+             putWorkout(workout);
              setWorkoutToBeEdited(null);
              upDateWorkout(null);
          }
 
-         setTimeout(() => {getWorkoutsFromAPI(workouts)}, 500);
+         //setTimeout(() => {getWorkoutsFromAPI(workouts)}, 500);
+         getWorkoutsFromAPI(workouts);
          setWorkoutInputValue("");
          setWorkoutTypeValue("");
          setModalVisible(false);
@@ -317,6 +352,8 @@ const InputModal = ({navigation, thirdModalVisible, handleWorkoutEdit, exerciseQ
                             userEmail: route.params.email,
                             workoutName: text,
                             workoutType: workoutTypeValue,
+                            //exercises: exerciseQuantityValue,
+                            
                         })}}
                         value={workoutInputValue}
                         //onSubmitEditing={handleWorkoutSubmit}
@@ -331,6 +368,8 @@ const InputModal = ({navigation, thirdModalVisible, handleWorkoutEdit, exerciseQ
                             userEmail: route.params.email,
                             workoutName: workoutInputValue,
                             workoutType: text,
+                            //exercises: exerciseQuantityValue,
+                            
                         })}}
                         value={workoutTypeValue}
                         //onSubmitEditing={handleWorkoutSubmit}

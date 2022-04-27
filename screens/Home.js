@@ -20,7 +20,7 @@ const Home = ({isExercise, firstName}) => {
     //const [workouts, setWorkouts] = useState(initialWorkouts);
     const [workouts, setWorkouts] = useState([]);
     const [workoutEmail, setWorkoutEmail] = useState();
-    const [exerciseQuantityValue, setExerciseQuantityValue] = useState(Number);
+    const [exerciseQuantityValue, setExerciseQuantityValue] = useState(0);
     
 
     useEffect(()=>{
@@ -33,7 +33,7 @@ const Home = ({isExercise, firstName}) => {
         .then(function(response){
             setWorkouts(response.data)
             //setExerciseQuantityValue(response.data.exercises)
-            console.log(workouts)
+            //console.log(workouts)
             setWorkoutEmail(route.params.email)
             
             
@@ -66,7 +66,7 @@ const Home = ({isExercise, firstName}) => {
     const [restIntervalValue, setRestIntervalValue] = useState();
     const [workoutTypeValue, setWorkoutTypeValue] = useState();
     const [workoutExerciseValue, setWorkoutExerciseValue] = useState();
-    const [workoutIDValue, setWorkoutIDValue] = useState();
+    const [workoutIDValue, setWorkoutIDValue] = useState(null);
     const [exerciseVisible, setExerciseVisible] = useState(false);
 
     // Function to add a new workout
@@ -90,6 +90,7 @@ const Home = ({isExercise, firstName}) => {
         setModalVisible(true);
         setWorkoutInputValue(item.workoutName);
         setWorkoutTypeValue(item.workoutType);
+        setExerciseQuantityValue(item.exercises);
         //setWorkoutIDValue(item.key);
     }
 
