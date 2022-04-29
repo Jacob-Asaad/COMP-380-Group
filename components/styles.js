@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import {View, Text, Image, TextInput, TouchableOpacity} from 'react-native';
 import Constants from 'expo-constants';
+import NumericInput from 'react-native-numeric-input';
 
 const StatusBarHeight = Constants.statusBarHeight;
 export const Colors = {
@@ -22,6 +23,9 @@ export const Colors = {
 
 const { primary, crim, grn, c1prim, drkcyan, secondary, tertiary, darkLight, brand, green, red, loginColor,tempVar } = Colors;
 
+export const StyledNumericInputView =styled.View`
+     padding-left: 32%;
+`
 export const StyledContainer = styled.View`
      flex: 1;
      padding: 25px;
@@ -101,6 +105,22 @@ export const StyledInputLabel = styled.Text`
     color: ${tertiary};
     font-size: 13px;
     text-align: left;
+    
+`;
+export const StyledInputNumericLabel = styled.Text`
+    marginTop: 5px;
+    color: ${tertiary};
+    font-size: 13px;
+    text-align: center;
+    padding-right: 100px;
+`;
+
+export const StyledInputNumericLabel1 = styled.Text`
+    marginTop: 5px;
+    color: ${tertiary};
+    font-size: 13px;
+    text-align: center;
+    flex-direction: row;
 `;
 
 export const LeftIcon = styled.View`

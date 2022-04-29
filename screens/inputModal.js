@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { Modal } from 'react-native';
+import NumericInput from 'react-native-numeric-input';
 //import Axios from 'axios';
 import {
     ModalButton,
@@ -12,7 +13,10 @@ import {
     HeaderTitle,
     colors1,
     StyledInput,
-    Line
+    Line,
+    StyledInputLabel,
+    StyledNumericInputView,
+    StyledInputNumericLabel
    
 } from './../components/styles';
 import { NavigationContainer, useRoute } from '@react-navigation/native';
@@ -343,6 +347,7 @@ const InputModal = ({navigation, thirdModalVisible, handleWorkoutEdit, exerciseQ
                           <HeaderTitle>Workouts</HeaderTitle>
                          <AntDesign name="edit" size={30} color={colors1.tertiary} />
                     </ModalIcon>
+                    <StyledInputLabel>Workout Name</StyledInputLabel>
                     <StyledInput 
                         placeholder="Workout Name"
                         placeholderTextColor={colors1.alternative}
@@ -359,6 +364,7 @@ const InputModal = ({navigation, thirdModalVisible, handleWorkoutEdit, exerciseQ
                         //onSubmitEditing={handleWorkoutSubmit}
                         onSubmitEditing={handleWorkoutSubmit}
                     />
+                    <StyledInputLabel>Workout Type</StyledInputLabel>
                     <StyledInput 
                         placeholder="Type"
                         placeholderTextColor={colors1.alternative}
@@ -391,7 +397,9 @@ const InputModal = ({navigation, thirdModalVisible, handleWorkoutEdit, exerciseQ
                     <HeaderTitle>Exercises</HeaderTitle>
                     <FontAwesome5 name="dumbbell" size={30} color={colors1.tertiary} />
                     </ModalIcon>
+                    
                     <ModalActionGroup>
+                    
                     <ModalAction color={colors1.primary} onPress={handleSecondModal}>
                             <AntDesign name="check" size={28} color={colors1.tertiary} />
                         </ModalAction>  
@@ -446,6 +454,7 @@ const InputModal = ({navigation, thirdModalVisible, handleWorkoutEdit, exerciseQ
                           <HeaderTitle>{workoutInputValue} Exericise</HeaderTitle>
                          <AntDesign name="edit" size={30} color={colors1.tertiary} />
                     </ModalIcon>
+                    <StyledInputLabel>Exercise Name</StyledInputLabel>
                     <StyledInput 
                         placeholder="Exercise Name"
                         placeholderTextColor={colors1.alternative}
@@ -464,54 +473,62 @@ const InputModal = ({navigation, thirdModalVisible, handleWorkoutEdit, exerciseQ
                         //onSubmitEditing={handleWorkoutSubmit}
                         onSubmitEditing={handleExerciseSubmit}
                     />
-                    <StyledInput 
-                        placeholder="Sets"
-                        placeholderTextColor={colors1.alternative}
-                        selectionColor={colors1.secondary}
-                        autoFocus={true}
-                        onChangeText={(text) => {setSetsValue(text); upDateExercise({
-                            exerciseName: exerciseNameValue,
-                            sets: text,
-                            targetRepetitions: targetRepetitionsValue,
-                            startWeight: startWeightValue,
-                            restInterval: restIntervalValue,
-                        })}}
+                    
+                    <StyledNumericInputView>
+                    <StyledInputNumericLabel>Sets</StyledInputNumericLabel>
+                    <NumericInput 
+                        
                         value={setsValue}
-                        //onSubmitEditing={handleWorkoutSubmit}
-                        onSubmitEditing={handleExerciseSubmit}
-                    />
-                    <StyledInput 
-                        placeholder="Repetitions"
-                        placeholderTextColor={colors1.alternative}
-                        selectionColor={colors1.secondary}
+                        rounded
                         autoFocus={true}
-                        onChangeText={(text) => {setTargetRepetitionsValue(text); upDateExercise({
+                        onChange={(value) => {setSetsValue(value); upDateExercise({
                             exerciseName: exerciseNameValue,
-                            sets: setsValue,
-                            targetRepetitions: text,
+                            sets: value,
+                            targetRepetitions: targetRepetitionsValue,
                             startWeight: startWeightValue,
                             restInterval: restIntervalValue,
                         })}}
-                        value={targetRepetitionsValue}
-                        //onSubmitEditing={handleWorkoutSubmit}
                         onSubmitEditing={handleExerciseSubmit}
                     />
-                    <StyledInput 
-                        placeholder="Start Weight"
-                        placeholderTextColor={colors1.alternative}
-                        selectionColor={colors1.secondary}
+                    </StyledNumericInputView>
+                    <StyledNumericInputView>
+                    <StyledInputNumericLabel>Estimated Repetitions</StyledInputNumericLabel>
+                    
+                    <NumericInput 
+                        
+                        value={targetRepetitionsValue}
+                        rounded
                         autoFocus={true}
-                        onChangeText={(text) => {setStartWeightValue(text); upDateExercise({
+                        onChange={(value) => {setTargetRepetitionsValue(value); upDateExercise({
+                            exerciseName: exerciseNameValue,
+                            sets: setsValue,
+                            targetRepetitions: value,
+                            startWeight: startWeightValue,
+                            restInterval: restIntervalValue,
+                        })}}
+                        onSubmitEditing={handleExerciseSubmit}
+                    />
+                    </StyledNumericInputView>
+                    <StyledNumericInputView>
+                    <StyledInputNumericLabel>Start Weight (lbs)</StyledInputNumericLabel>
+                    <NumericInput 
+                        valueType={'real'}
+                        value={startWeightValue}
+                        rounded
+                        autoFocus={true}
+                        onChange={(value) => {setStartWeightValue(value); upDateExercise({
                             exerciseName: exerciseNameValue,
                             sets: setsValue,
                             targetRepetitions: targetRepetitionsValue,
-                            startWeight: text,
+                            startWeight: value,
                             restInterval: restIntervalValue,
                         })}}
-                        value={startWeightValue}
-                        //onSubmitEditing={handleWorkoutSubmit}
                         onSubmitEditing={handleExerciseSubmit}
                     />
+                    </StyledNumericInputView>
+                    
+                    
+                    <StyledInputLabel>Rest Interval</StyledInputLabel>
                     <StyledInput 
                         placeholder="Rest Interval"
                         placeholderTextColor={colors1.alternative}
