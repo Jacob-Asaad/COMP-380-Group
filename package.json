@@ -38,6 +38,7 @@
     "react-native-web": "0.17.1",
     "react-navigation": "^4.4.4",
     "react-navigation-stack": "^2.10.4",
+    "react-numeric-input": "^2.2.3",
     "styled-components": "^5.3.3",
     "uuid": "3.4.0"
   },
