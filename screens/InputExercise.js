@@ -38,6 +38,7 @@ const InputExercise = ({exerciseInputVisible, setExerciseInputVisible, exerciseN
                 workoutID: workoutIDValue,
                 exerciseName: exerciseNameValue,
                 sets: setsValue,
+            
                 targetRepetitions: targetRepetitionsValue,
                 startWeight: startWeightValue,
                 weightUnit: weightUnitValue,

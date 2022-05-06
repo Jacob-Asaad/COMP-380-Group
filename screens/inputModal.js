@@ -27,6 +27,7 @@ import ExerciseHome from './ExerciseHome';
 import fitnessAPI from '../apis/fitness';
 import { Axios } from 'axios';
 import { createIconSetFromFontello } from 'react-native-vector-icons';
+import { KeyboardAvoidingView } from 'react-native-web';
 
 
 const InputModal = ({navigation, upperTargetRepetitionsValue, setUpperTargetRepetitionsValue,thirdModalVisible, handleWorkoutEdit,  setsValue, setSetsValue, targetRepetitionsValue, setTargetRepetitionsValue, startWeightValue, setStartWeightValue, restIntervalValue, setRestIntervalValue, exerciseNameValue, setExerciseNameValue, setThirdModalVis, firstName, setSecondModalVis, secondModalVisible, modalVisible, getWorkoutsFromAPI, workoutEmail, setModalVisible, workoutInputValue, setWorkoutInputValue, workoutTypeValue, setWorkoutTypeValue, workoutToBeEdited, setWorkoutToBeEdited, workoutExerciseValue, setWorkoutExerciseValue, handleAddWorkout, handleEditWorkout, workouts, exerciseVisible, workoutIDValue, setWorkoutIDValue, setExerciseVisible, }) => {
@@ -353,6 +354,7 @@ const InputModal = ({navigation, upperTargetRepetitionsValue, setUpperTargetRepe
                 visible={modalVisible}
                 onRequestClose={handleCloseModal}
             >
+                
                 <ModalContainer>
                     <ModalView>
                     <ModalIcon>
@@ -393,13 +395,13 @@ const InputModal = ({navigation, upperTargetRepetitionsValue, setUpperTargetRepe
                         //onSubmitEditing={handleWorkoutSubmit}
                         onSubmitEditing={handleWorkoutSubmit}
                     />
-
+                     
                     <ModalActionGroup>
                         <ModalAction color={colors1.primary} onPress={handleCloseModal}>
                              <AntDesign name="close" size={28} color={colors1.tertiary} />
                         </ModalAction>
                         
-                        <ModalAction color={colors1.primary} onPress={handleSecondModal}>
+                        <ModalAction color={colors1.primary} onPress={handleWorkoutSubmit}>
                             <AntDesign name="plus" size={28} color={colors1.tertiary} />
                         </ModalAction>
                     </ModalActionGroup>
@@ -416,8 +418,10 @@ const InputModal = ({navigation, upperTargetRepetitionsValue, setUpperTargetRepe
                             <AntDesign name="check" size={28} color={colors1.tertiary} />
                         </ModalAction>  
                     </ModalActionGroup>
+                    
                     </ModalView>
                 </ModalContainer>
+                
             </Modal>
             <Modal
                 animationType="slide"
