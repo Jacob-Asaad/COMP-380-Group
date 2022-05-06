@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, Text, Button, FlatList } from 'react-native';
+import { View, FlatList } from 'react-native';
 import SiteWorkoutCard from '../components/SiteWorkoutCard';
 import fitnessAPI from '../apis/fitness';
+
+
 const SiteWorkouts = ({navigation}) => {
 
     const [siteWorkouts, setSiteWorkouts] = useState([])
@@ -32,6 +34,7 @@ const SiteWorkouts = ({navigation}) => {
     }
     return (
         <View>
+        
            <FlatList data = {siteWorkouts} keyExtractor = {(item, index) => 'key' + index} 
                renderItem = {({item}) => {
                    return <SiteWorkoutCard item={item}/>

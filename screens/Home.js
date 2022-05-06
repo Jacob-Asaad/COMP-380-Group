@@ -5,6 +5,8 @@ import { NavigationContainer, useRoute } from '@react-navigation/native';
 
 import ExerciseHome from './ExerciseHome';
 
+import { WorkoutContext } from './../helper/context';
+
 import ListItems from './Listitems';
 import { Container } from './../components/styles';
 
@@ -20,7 +22,9 @@ const Home = ({isExercise, firstName}) => {
     //const [workouts, setWorkouts] = useState(initialWorkouts);
     const [workouts, setWorkouts] = useState([]);
     const [workoutEmail, setWorkoutEmail] = useState();
-    const [exerciseQuantityValue, setExerciseQuantityValue] = useState(0);
+    const [exerciseQuantityValue, setExerciseQuantityValue] = useState({ value: 0 })
+       
+    ;
     
 
     useEffect(()=>{
@@ -60,10 +64,12 @@ const Home = ({isExercise, firstName}) => {
     const [thirdModalVisible, setThirdModalVis] = useState(false);
     const [workoutInputValue, setWorkoutInputValue] = useState();
     const [exerciseNameValue, setExerciseNameValue] = useState();
-    const [setsValue, setSetsValue] = useState();
-    const [targetRepetitionsValue, setTargetRepetionsValue] = useState();
-    const [startWeightValue, setStartWeightValue] = useState();
-    const [restIntervalValue, setRestIntervalValue] = useState();
+    const [setsValue, setSetsValue] = useState(0);
+    const [upperTargetRepetitionsValue, setUpperTargetRepetitionsValue] = useState(0);
+    const [targetRepetitionsValue, setTargetRepetionsValue] = useState(0);
+    const [startWeightValue, setStartWeightValue] = useState(0);
+    const [restIntervalValue, setRestIntervalValue] = useState(0);
+    
     const [workoutTypeValue, setWorkoutTypeValue] = useState();
     const [workoutExerciseValue, setWorkoutExerciseValue] = useState();
     const [workoutIDValue, setWorkoutIDValue] = useState(null);
@@ -115,7 +121,7 @@ const Home = ({isExercise, firstName}) => {
 
     return (
         <Container>
-        <>
+        <WorkoutContext.Provider value={{exerciseQuantityValue,  setExerciseQuantityValue}}>
         <Header 
        handleClearWorkouts={handleClearWorkouts}
        firstName={firstName}
@@ -130,6 +136,8 @@ const Home = ({isExercise, firstName}) => {
          handleWorkoutEdit={handleWorkoutEdit} 
         />
         <InputModal
+            upperTargetRepetitionsValue={upperTargetRepetitionsValue}
+            setUpperTargetRepetitionsValue={setUpperTargetRepetitionsValue}
             handleWorkoutEdit={handleWorkoutEdit}
             workouts={workouts}
             firstName={firstName}
@@ -169,7 +177,7 @@ const Home = ({isExercise, firstName}) => {
             setExerciseVisible={setExerciseVisible}
         />
         
-       </>
+       </WorkoutContext.Provider>
        </Container>
     );
 }

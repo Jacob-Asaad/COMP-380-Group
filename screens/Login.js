@@ -52,7 +52,8 @@ const Login = ({navigation}) => {
 
     const handleLogin = (credentials, setSubmitting) => {
         handleMessage(null);
-        const url = 'https://fitnessapp3773.herokuapp.com/user/signin';
+       //const url = 'https://fitnessapp3773.herokuapp.com/user/signin';
+       const url = 'https://aqueous-mountain-56734.herokuapp.com/user/signin';
         
                               // inside then is a promise
         axios
