@@ -170,10 +170,11 @@ const InputModal = ({navigation, upperTargetRepetitionsValue, setUpperTargetRepe
     const handleCloseThirdMod = () => {
         setThirdModalVis(false);
         setExerciseNameValue("");
-        setSetsValue("");
-        setTargetRepetitionsValue("");
-        setStartWeightValue("");
-        setRestIntervalValue("");
+        setSetsValue(0);
+        setUpperTargetRepetitionsValue(0);
+        setTargetRepetitionsValue(0);
+        setStartWeightValue(0);
+        setRestIntervalValue(0);
         setExerciseToBeEdited(null);
         
     }
