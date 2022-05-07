@@ -31,6 +31,7 @@ function MyStack({}) {
                   headerTintColor: tertiary,
                   headerTransparent: true,
                   headerTitle: '',
+                  headerBackVisible: false,
                   headerLeftContainerStyle: {
                       paddingLeft: 20
                   }
