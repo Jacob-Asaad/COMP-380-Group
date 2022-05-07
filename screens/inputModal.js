@@ -255,7 +255,7 @@ const InputModal = ({navigation, upperTargetRepetitionsValue, setUpperTargetRepe
         //console.log(exerciseQuantityValue)
         
         if (!exerciseToBeEdited) {
-            setExerciseQuantityValue(JSON.parse(JSON.stringify(exerciseQuantityValue)) + 1);
+            setExerciseQuantityValue((exerciseQuantityValue) + 1);
             console.log(exerciseQuantityValue)
             incrementExerciseCount();
            
@@ -480,7 +480,7 @@ const InputModal = ({navigation, upperTargetRepetitionsValue, setUpperTargetRepe
                             //userEmail: route.params.email,
                             exerciseName: text,
                             sets: setsValue,
-                            upperTargetRepetitions: upperTargetRepetitionsValue,
+                            targetRepetitionsUpper: upperTargetRepetitionsValue,
                             targetRepetitions: targetRepetitionsValue,
                             startWeight: startWeightValue,
                             restInterval: restIntervalValue,
@@ -501,7 +501,7 @@ const InputModal = ({navigation, upperTargetRepetitionsValue, setUpperTargetRepe
                         onChange={(val) => {setSetsValue(val); upDateExercise({
                             exerciseName: exerciseNameValue,
                             sets: val,
-                            upperTargetRepetitions: upperTargetRepetitionsValue,
+                            targetRepetitionsUpper: upperTargetRepetitionsValue,
                             targetRepetitions: targetRepetitionsValue,
                             startWeight: startWeightValue,
                             restInterval: restIntervalValue,
@@ -521,7 +521,7 @@ const InputModal = ({navigation, upperTargetRepetitionsValue, setUpperTargetRepe
                         onChange={(val) => {setTargetRepetitionsValue(val); upDateExercise({
                             exerciseName: exerciseNameValue,
                             sets: setsValue,
-                            upperTargetRepetitions: val,
+                            targetRepetitionsUpper: val,
                             targetRepetitions: val,
                             startWeight: startWeightValue,
                             restInterval: restIntervalValue,
@@ -533,11 +533,11 @@ const InputModal = ({navigation, upperTargetRepetitionsValue, setUpperTargetRepe
                         value={upperTargetRepetitionsValue}
                         rounded
                         autoFocus={true}
-                        minValue={targetRepetitionsValue}
+                        //minValue={targetRepetitionsValue}
                         onChange={(val) => {setUpperTargetRepetitionsValue(val); upDateExercise({
                             exerciseName: exerciseNameValue,
                             sets: setsValue,
-                            upperTargetRepetitions: val,
+                            targetRepetitionsUpper: val,
                             targetRepetitions: targetRepetitionsValue,
                             startWeight: startWeightValue,
                             restInterval: restIntervalValue,
@@ -556,7 +556,7 @@ const InputModal = ({navigation, upperTargetRepetitionsValue, setUpperTargetRepe
                         onChange={(val) => {setStartWeightValue(val); upDateExercise({
                             exerciseName: exerciseNameValue,
                             sets: setsValue,
-                            upperTargetRepetitions: upperTargetRepetitionsValue,
+                            targetRepetitionsUpper: upperTargetRepetitionsValue,
                             targetRepetitions: targetRepetitionsValue,
                             startWeight: val,
                             restInterval: restIntervalValue,
@@ -576,7 +576,7 @@ const InputModal = ({navigation, upperTargetRepetitionsValue, setUpperTargetRepe
                         onChange={(val) => {setStartWeightValue(val); upDateExercise({
                             exerciseName: exerciseNameValue,
                             sets: setsValue,
-                            upperTargetRepetitions: upperTargetRepetitionsValue,
+                            targetRepetitionsUpper: upperTargetRepetitionsValue,
                             targetRepetitions: targetRepetitionsValue,
                             startWeight: startWeightValue,
                             restInterval: val,
