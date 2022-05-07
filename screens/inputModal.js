@@ -117,7 +117,7 @@ const InputModal = ({navigation, upperTargetRepetitionsValue, setUpperTargetRepe
         workoutID: workoutIDValue,
         exerciseName: exerciseNameValue,
         sets: setsValue,
-        upperTargetRepetitions: upperTargetRepetitionsValue,
+        targetRepetitionsUpper: upperTargetRepetitionsValue,
         targetRepetitions: targetRepetitionsValue,
         startWeight: startWeightValue,
         restInterval: restIntervalValue
@@ -233,6 +233,7 @@ const InputModal = ({navigation, upperTargetRepetitionsValue, setUpperTargetRepe
         setExerciseNameValue(item.exerciseName);
         setSetsValue(item.sets);
         setTargetRepetitionsValue(item.targetRepetitions);
+        setUpperTargetRepetitionsValue(item.targetRepetitionsUpper);
         setStartWeightValue(item.startWeight);
         setRestIntervalValue(item.restInterval);
 
