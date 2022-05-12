@@ -40,11 +40,11 @@ function MyStack({}) {
       <Stack.Screen name="Splash" component={Splash} />
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="SignUp" component={SignUp} /> 
-      <Stack.Screen name="Welcome" component={Welcome} />
-      <Stack.Screen name="ExploreTabs" component={ExploreTabs} />
-      <Stack.Screen name="CreateWorkout" component={CreateWorkout} />
-      <Stack.Screen name="Exercise" component={Exercise} />
-      <Stack.Screen name="inputModal" component={InputModal} />
+      <Stack.Screen options={{headerBackVisible: false,}} name="Welcome" component={Welcome} />
+      <Stack.Screen options={{headerBackVisible: false,}} name="ExploreTabs" component={ExploreTabs} />
+      <Stack.Screen options={{headerBackVisible: false,}} name="CreateWorkout" component={CreateWorkout} />
+      <Stack.Screen options={{headerBackVisible: false,}} name="Exercise" component={Exercise} />
+      <Stack.Screen options={{headerBackVisible: false,}} name="inputModal" component={InputModal} />
       <Stack.Screen name="PublicSiteWorkouts" component={PublicSiteWorkouts} />
     </Stack.Navigator>
     </NavigationContainer>
