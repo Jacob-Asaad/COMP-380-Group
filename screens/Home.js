@@ -68,7 +68,9 @@ const Home = ({isExercise, firstName}) => {
     const [upperTargetRepetitionsValue, setUpperTargetRepetitionsValue] = useState(0);
     const [targetRepetitionsValue, setTargetRepetionsValue] = useState(0);
     const [startWeightValue, setStartWeightValue] = useState(0);
+    const [weightUnitValue, setWeightUnitValue] = useState();
     const [restIntervalValue, setRestIntervalValue] = useState(0);
+    const [restSecondsValue, setRestSecondsValue] = useState();
     
     const [workoutTypeValue, setWorkoutTypeValue] = useState();
     const [workoutExerciseValue, setWorkoutExerciseValue] = useState();
@@ -149,6 +151,10 @@ const Home = ({isExercise, firstName}) => {
             setSetsValue={setSetsValue}
             restIntervalValue={restIntervalValue}
             setRestIntervalValue={setRestIntervalValue}
+            weightUnitValue={weightUnitValue}
+            setWeightUnitValue={setWeightUnitValue}
+            restSecondsValue={restSecondsValue}
+            setRestSecondsValue={setRestSecondsValue}
             targetRepetitionsValue={targetRepetitionsValue}
             setTargetRepetitionsValue={setTargetRepetionsValue}
             startWeightValue={startWeightValue}

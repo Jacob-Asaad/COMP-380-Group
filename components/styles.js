@@ -26,6 +26,21 @@ const { primary, crim, grn, c1prim, drkcyan, secondary, tertiary, darkLight, bra
 export const StyledNumericInputView =styled.View`
      padding-left: 32%;
 `
+export const StyledNumericInputView1 =styled.View`
+     margin-left: 5px;
+     flex-direction: row;
+    justify-content: space-around;
+     padding: 5px;
+     padding-left: 5px;
+`
+export const StyledNumericInputView11 =styled.View`
+     margin-left: 5px;
+     flex-direction: row;
+    justify-content: space-around;
+     padding: 5px;
+     padding-left: 30px;
+`
+
 export const StyledContainer = styled.View`
      flex: 1;
      padding: 25px;

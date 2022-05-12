@@ -1,5 +1,6 @@
 import React, {useState, useContext, useEffect} from 'react';
-import { Modal } from 'react-native';
+import { Modal, Picker } from 'react-native';
+//import Picker from '@react-native-picker/picker'
 import NumericInput from 'react-native-numeric-input';
 import { WorkoutContext } from './../helper/context';
 //import Axios from 'axios';
@@ -17,6 +18,8 @@ import {
     Line,
     StyledInputLabel,
     StyledNumericInputView,
+    StyledNumericInputView1,
+    StyledNumericInputView11,
     StyledInputNumericLabel
    
 } from './../components/styles';
@@ -30,7 +33,7 @@ import { createIconSetFromFontello } from 'react-native-vector-icons';
 import { KeyboardAvoidingView } from 'react-native-web';
 
 
-const InputModal = ({navigation, upperTargetRepetitionsValue, setUpperTargetRepetitionsValue,thirdModalVisible, handleWorkoutEdit,  setsValue, setSetsValue, targetRepetitionsValue, setTargetRepetitionsValue, startWeightValue, setStartWeightValue, restIntervalValue, setRestIntervalValue, exerciseNameValue, setExerciseNameValue, setThirdModalVis, firstName, setSecondModalVis, secondModalVisible, modalVisible, getWorkoutsFromAPI, workoutEmail, setModalVisible, workoutInputValue, setWorkoutInputValue, workoutTypeValue, setWorkoutTypeValue, workoutToBeEdited, setWorkoutToBeEdited, workoutExerciseValue, setWorkoutExerciseValue, handleAddWorkout, handleEditWorkout, workouts, exerciseVisible, workoutIDValue, setWorkoutIDValue, setExerciseVisible, }) => {
+const InputModal = ({navigation, weightUnitValue, setWeightUnitValue,restSecondsValue, setRestSecondsValue, upperTargetRepetitionsValue, setUpperTargetRepetitionsValue,thirdModalVisible, handleWorkoutEdit,  setsValue, setSetsValue, targetRepetitionsValue, setTargetRepetitionsValue, startWeightValue, setStartWeightValue, restIntervalValue, setRestIntervalValue, exerciseNameValue, setExerciseNameValue, setThirdModalVis, firstName, setSecondModalVis, secondModalVisible, modalVisible, getWorkoutsFromAPI, workoutEmail, setModalVisible, workoutInputValue, setWorkoutInputValue, workoutTypeValue, setWorkoutTypeValue, workoutToBeEdited, setWorkoutToBeEdited, workoutExerciseValue, setWorkoutExerciseValue, handleAddWorkout, handleEditWorkout, workouts, exerciseVisible, workoutIDValue, setWorkoutIDValue, setExerciseVisible, }) => {
     const route = useRoute();
     
     const {exerciseQuantityValue, setExerciseQuantityValue} = useContext(WorkoutContext);
@@ -120,7 +123,9 @@ const InputModal = ({navigation, upperTargetRepetitionsValue, setUpperTargetRepe
         targetRepetitionsUpper: upperTargetRepetitionsValue,
         targetRepetitions: targetRepetitionsValue,
         startWeight: startWeightValue,
-        restInterval: restIntervalValue
+        weightUnit: weightUnitValue,
+        restInterval: restIntervalValue,
+        restSeconds: restSecondsValue
     })
     const postWorkout = (workout) => {
         const url = 'workout';
@@ -174,7 +179,9 @@ const InputModal = ({navigation, upperTargetRepetitionsValue, setUpperTargetRepe
         setUpperTargetRepetitionsValue(0);
         setTargetRepetitionsValue(0);
         setStartWeightValue(0);
+        setWeightUnitValue("lbs");
         setRestIntervalValue(0);
+        setRestSecondsValue("00");
         setExerciseToBeEdited(null);
         
     }
@@ -189,7 +196,7 @@ const InputModal = ({navigation, upperTargetRepetitionsValue, setUpperTargetRepe
         setWorkoutExerciseValue(0);
         // setOtherValues in workouts everywhere you find this
         setWorkoutToBeEdited(null);
-        console.log("closed")
+        //console.log("closed")
         // this one too
     }
 
@@ -236,7 +243,9 @@ const InputModal = ({navigation, upperTargetRepetitionsValue, setUpperTargetRepe
         setTargetRepetitionsValue(item.targetRepetitions);
         setUpperTargetRepetitionsValue(item.targetRepetitionsUpper);
         setStartWeightValue(item.startWeight);
+        setWeightUnitValue(item.weightUnit);
         setRestIntervalValue(item.restInterval);
+        setRestSecondsValue(item.restSeconds);
 
         //setWorkoutIDValue(item.key);
     }
@@ -286,10 +295,13 @@ const InputModal = ({navigation, upperTargetRepetitionsValue, setUpperTargetRepe
          setTimeout(() => {getExercisesFromAPI(workoutIDValue)}, 900);
          //getExercisesFromAPI(workoutIDValue);
          setExerciseNameValue("");
-         setSetsValue("");
-         setTargetRepetitionsValue("");
-         setStartWeightValue("");
-         setRestIntervalValue("");
+         setSetsValue(0);
+         setUpperTargetRepetitionsValue(0);
+         setTargetRepetitionsValue(0);
+         setStartWeightValue(0);
+         setWeightUnitValue("lbs");
+         setRestIntervalValue(0);
+         setRestSecondsValue("00");
          setTimeout(() => {getWorkoutsFromAPI(workouts)}, 1500);
          //getWorkoutsFromAPI(workouts);
          setThirdModalVis(false);
@@ -336,6 +348,7 @@ const InputModal = ({navigation, upperTargetRepetitionsValue, setUpperTargetRepe
          //getWorkoutsFromAPI(workouts);
          setWorkoutInputValue("");
          setWorkoutTypeValue("");
+         setExerciseQuantityValue(0);
          setModalVisible(false);
          
          
@@ -469,7 +482,7 @@ const InputModal = ({navigation, upperTargetRepetitionsValue, setUpperTargetRepe
             <ModalContainer>
                     <ModalView>
                     <ModalIcon>
-                          <HeaderTitle>{workoutInputValue} Exericise</HeaderTitle>
+                          <HeaderTitle>{workoutInputValue} Exercise</HeaderTitle>
                          <AntDesign name="edit" size={30} color={colors1.tertiary} />
                     </ModalIcon>
                     <StyledInputLabel>Exercise Name</StyledInputLabel>
@@ -485,7 +498,9 @@ const InputModal = ({navigation, upperTargetRepetitionsValue, setUpperTargetRepe
                             targetRepetitionsUpper: upperTargetRepetitionsValue,
                             targetRepetitions: targetRepetitionsValue,
                             startWeight: startWeightValue,
+                            weightUnit: weightUnitValue,
                             restInterval: restIntervalValue,
+                            restSeconds: restSecondsValue,
 
                         })}}
                         value={exerciseNameValue}
@@ -499,6 +514,7 @@ const InputModal = ({navigation, upperTargetRepetitionsValue, setUpperTargetRepe
                         
                         value={setsValue}
                         rounded
+                        minValue={0}
                         autoFocus={true}
                         onChange={(val) => {setSetsValue(val); upDateExercise({
                             exerciseName: exerciseNameValue,
@@ -506,13 +522,25 @@ const InputModal = ({navigation, upperTargetRepetitionsValue, setUpperTargetRepe
                             targetRepetitionsUpper: upperTargetRepetitionsValue,
                             targetRepetitions: targetRepetitionsValue,
                             startWeight: startWeightValue,
+                            weightUnit: weightUnitValue,
                             restInterval: restIntervalValue,
+                            restSeconds: restSecondsValue,
                         })}}
                         onSubmitEditing={handleExerciseSubmit}
                     />
                     </StyledNumericInputView>
-                    <StyledNumericInputView>
-                    <StyledInputNumericLabel>Estimated Repetitions</StyledInputNumericLabel>
+                    <Line/>
+                    <StyledNumericInputView><StyledInputNumericLabel>Repetitions</StyledInputNumericLabel></StyledNumericInputView>
+                    
+                    <StyledNumericInputView11>
+                    
+                    
+                    <StyledInputNumericLabel>Lower</StyledInputNumericLabel>
+                    <StyledInputNumericLabel>Upper</StyledInputNumericLabel>
+                    
+                    </StyledNumericInputView11>
+                    <StyledNumericInputView1>
+                    
                     
                     <NumericInput 
                         valueType="integer"
@@ -523,10 +551,12 @@ const InputModal = ({navigation, upperTargetRepetitionsValue, setUpperTargetRepe
                         onChange={(val) => {setTargetRepetitionsValue(val); upDateExercise({
                             exerciseName: exerciseNameValue,
                             sets: setsValue,
-                            targetRepetitionsUpper: val,
+                            targetRepetitionsUpper: upperTargetRepetitionsValue,
                             targetRepetitions: val,
                             startWeight: startWeightValue,
+                            weightUnit: weightUnitValue,
                             restInterval: restIntervalValue,
+                            restSeconds: restSecondsValue,
                         })}}
                         onSubmitEditing={handleExerciseSubmit}
                     />
@@ -534,6 +564,7 @@ const InputModal = ({navigation, upperTargetRepetitionsValue, setUpperTargetRepe
                         valueType="integer"
                         value={upperTargetRepetitionsValue}
                         rounded
+                        minValue={0}
                         autoFocus={true}
                         //minValue={targetRepetitionsValue}
                         onChange={(val) => {setUpperTargetRepetitionsValue(val); upDateExercise({
@@ -542,18 +573,23 @@ const InputModal = ({navigation, upperTargetRepetitionsValue, setUpperTargetRepe
                             targetRepetitionsUpper: val,
                             targetRepetitions: targetRepetitionsValue,
                             startWeight: startWeightValue,
+                            weightUnit: weightUnitValue,
                             restInterval: restIntervalValue,
+                            restSeconds: restSecondsValue,
                         })}}
                         onSubmitEditing={handleExerciseSubmit}
                     />
                     
-                    </StyledNumericInputView>
-                    <StyledNumericInputView>
-                    <StyledInputNumericLabel>Start Weight (lbs)</StyledInputNumericLabel>
+                    </StyledNumericInputView1>
+                    <StyledNumericInputView11>
+                    <StyledInputNumericLabel>Start Weight </StyledInputNumericLabel><StyledInputNumericLabel>Weight Unit</StyledInputNumericLabel>
+                    </StyledNumericInputView11>
+                    <StyledNumericInputView1>
                     <NumericInput 
                         //valueType={'real'}
                         value={startWeightValue}
                         rounded
+                        minValue={0}
                         autoFocus={true}
                         onChange={(val) => {setStartWeightValue(val); upDateExercise({
                             exerciseName: exerciseNameValue,
@@ -561,31 +597,73 @@ const InputModal = ({navigation, upperTargetRepetitionsValue, setUpperTargetRepe
                             targetRepetitionsUpper: upperTargetRepetitionsValue,
                             targetRepetitions: targetRepetitionsValue,
                             startWeight: val,
+                            weightUnit: weightUnitValue,
                             restInterval: restIntervalValue,
+                            restSeconds: restSecondsValue,
                         })}}
                         onSubmitEditing={handleExerciseSubmit}
                     />
-                    </StyledNumericInputView>
-                    
-                    
-                    <StyledNumericInputView>
-                    <StyledInputNumericLabel>Minutes</StyledInputNumericLabel>
-                    <NumericInput 
-                        //valueType={'real'}
-                        value={restIntervalValue}
-                        rounded
-                        autoFocus={true}
-                        onChange={(val) => {setStartWeightValue(val); upDateExercise({
+                    <Picker
+                    selectedValue={weightUnitValue}
+                      style={{ height: 50, width: 92, color: colors1.tertiary }}
+                      onValueChange={(item) => {setWeightUnitValue(item); upDateExercise({
                             exerciseName: exerciseNameValue,
                             sets: setsValue,
                             targetRepetitionsUpper: upperTargetRepetitionsValue,
                             targetRepetitions: targetRepetitionsValue,
                             startWeight: startWeightValue,
+                            weightUnit: item,
+                            restInterval: restIntervalValue,
+                            restSeconds: restSecondsValue,
+                        })}}
+                    >
+                        <Picker.Item label="lbs" value="lbs" />
+                        <Picker.Item label="kgs" value="kgs" />
+                        
+                    </Picker>
+                    </StyledNumericInputView1>
+                    
+                    <StyledNumericInputView11><StyledInputNumericLabel>Minutes</StyledInputNumericLabel><StyledInputNumericLabel>Seconds</StyledInputNumericLabel></StyledNumericInputView11>
+                    <StyledNumericInputView1>
+                    
+                    <NumericInput 
+                        //valueType={'real'}
+                        value={restIntervalValue}
+                        rounded
+                        minValue={0}
+                        autoFocus={true}
+                        onChange={(val) => {setRestIntervalValue(val); upDateExercise({
+                            exerciseName: exerciseNameValue,
+                            sets: setsValue,
+                            targetRepetitionsUpper: upperTargetRepetitionsValue,
+                            targetRepetitions: targetRepetitionsValue,
+                            startWeight: startWeightValue,
+                            weightUnit: weightUnitValue,
                             restInterval: val,
+                            restSeconds: restSecondsValue,
                         })}}
                         onSubmitEditing={handleExerciseSubmit}
                     />
-                    </StyledNumericInputView>
+                    <Picker
+                    selectedValue={restSecondsValue}
+                      style={{ height: 50, width: 85, color: colors1.tertiary }}
+                      onValueChange={(item) => {setRestSecondsValue(item); upDateExercise({
+                            exerciseName: exerciseNameValue,
+                            sets: setsValue,
+                            targetRepetitionsUpper: upperTargetRepetitionsValue,
+                            targetRepetitions: targetRepetitionsValue,
+                            startWeight: startWeightValue,
+                            weightUnit: weightUnitValue,
+                            restInterval: restIntervalValue,
+                            restSeconds: item,
+                        })}}
+                    >
+                        <Picker.Item label="00" value="00" />
+                        <Picker.Item label="15" value="15" />
+                        <Picker.Item label="30" value="30" />
+                        <Picker.Item label="45" value="45" />
+                    </Picker>
+                    </StyledNumericInputView1>
 
                     <ModalActionGroup>
                         <ModalAction color={colors1.primary} onPress={handleCloseThirdMod}>
