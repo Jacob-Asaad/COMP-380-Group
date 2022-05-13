@@ -16,11 +16,7 @@ const Header = ({navigation, firstName}) => {
     return (
        <HeaderView>
            <HeaderTitle>{route.params.firstName}'s Workouts</HeaderTitle>
-           <HeaderButton
-               
-           >
-               <MaterialCommunityIcons name="weight-lifter" size={24}  />
-           </HeaderButton>
+           
        </HeaderView>
     );
 }

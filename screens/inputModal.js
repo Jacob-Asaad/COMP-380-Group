@@ -449,7 +449,7 @@ const InputModal = ({navigation, weightUnitValue, setWeightUnitValue,restSeconds
                 <ModalIcon>
                           
                           <HeaderTitle>{workoutInputValue} Exercises</HeaderTitle>
-                          <HeaderTitle>{workoutIDValue}</HeaderTitle>
+                          
                          <AntDesign name="edit" size={30} color={colors1.tertiary} />
                     </ModalIcon>
                     <ModalActionGroup>
@@ -475,6 +475,7 @@ const InputModal = ({navigation, weightUnitValue, setWeightUnitValue,restSeconds
             </Modal>
             <Modal
               animationType="slide"
+              width="100%"
               transparent={true}
               visible={thirdModalVisible}
               onRequestClose={handleCloseThirdMod}

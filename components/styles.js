@@ -370,7 +370,11 @@ export const HeaderTitle = styled.Text`
   color: ${colors1.tertiary};
   letter-spacing: 2px;
   font-style: italic;
+  min-width: 100%;
+  text-align: center;
+ 
 `;
+
 export const HeaderButton = styled.TouchableOpacity`
   font-weight: bold;
   color: ${colors1.tertiary};
