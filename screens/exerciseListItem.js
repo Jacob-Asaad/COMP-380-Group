@@ -52,7 +52,7 @@ const ExerciseListItems = ({exercises, setExercises, handleExerciseEdit}) => {
                         <RowText>{data.item.exerciseName}</RowText>
                         <TypeText>Sets: {data.item.sets}</TypeText>
                         <TypeText>Repetititions: {data.item.targetRepetitions} to {data.item.targetRepetitionsUpper}</TypeText>
-                        <TypeText>Weight: {data.item.startWeight} {data.item.weightUnit}</TypeText>
+                        <TypeText>Start Weight: {data.item.startWeight} {data.item.weightUnit}</TypeText>
                         <TypeText>Rest Interval: {data.item.restInterval}:{data.item.restSeconds}</TypeText>
                         
                         
