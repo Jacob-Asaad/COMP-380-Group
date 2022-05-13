@@ -317,7 +317,13 @@ export const Avatar = styled.Image`
 
 export const WelcomeImage = styled.Image`
     height: 35%;
+<<<<<<< HEAD
     max-width: 100%;
+=======
+    min-width: 100%;
+    
+
+>>>>>>> fb7db4c7b20242ab33153d5f8a0bc3bd6ea80f87
 `;
 
 export const BottomTab = styled.TouchableOpacity`
