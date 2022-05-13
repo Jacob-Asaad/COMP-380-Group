@@ -316,7 +316,7 @@ export const Avatar = styled.Image`
 `;
 
 export const WelcomeImage = styled.Image`
-    height: 35%;
+    height: 255px;
     max-width: 100%;
 `;
 
