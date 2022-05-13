@@ -33,7 +33,7 @@ const Welcome = ({ navigation, firstName, lastName, email }) => {
                 
                 <WelcomeImage resizeMode="cover" source={require('./../assets/CloudFitnessLogo.png')}/>
                 <WelcomeContainer>
-                <PageTitle1 color={"#000f"} welcome={true}>Welcome! Buddy</PageTitle1>
+                <PageTitle1 color={"#000f"} welcome={true}>Welcome!</PageTitle1>
                 <SubTitle welcome={true}>{route.params.firstName + ' ' + route.params.lastName|| 'Joe Weinstock'}</SubTitle>
                 <SubTitle welcome={true}>{route.params.email || 'joeweinstock@widgetfactory.com'}</SubTitle>
                 <StyledFormArea>
