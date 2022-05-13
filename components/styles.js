@@ -25,6 +25,7 @@ const { primary, crim, grn, c1prim, drkcyan, secondary, tertiary, darkLight, bra
 
 export const StyledNumericInputView =styled.View`
      padding-left: 32%;
+    
 `
 export const StyledNumericInputView1 =styled.View`
      margin-left: 5px;

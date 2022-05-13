@@ -1,5 +1,6 @@
 import React, {useState, useContext, useEffect} from 'react';
-import { Modal, Picker } from 'react-native';
+import { Modal} from 'react-native';
+import {Picker} from '@react-native-picker/picker';
 //import Picker from '@react-native-picker/picker'
 import NumericInput from 'react-native-numeric-input';
 import { WorkoutContext } from './../helper/context';
@@ -530,7 +531,7 @@ const InputModal = ({navigation, weightUnitValue, setWeightUnitValue,restSeconds
                         onSubmitEditing={handleExerciseSubmit}
                     />
                     </StyledNumericInputView>
-                    <Line/>
+                    
                     <StyledNumericInputView><StyledInputNumericLabel>Repetitions</StyledInputNumericLabel></StyledNumericInputView>
                     
                     <StyledNumericInputView11>
@@ -623,13 +624,14 @@ const InputModal = ({navigation, weightUnitValue, setWeightUnitValue,restSeconds
                         
                     </Picker>
                     </StyledNumericInputView1>
-                    
+                    <StyledNumericInputView><StyledInputNumericLabel>Rest Interval</StyledInputNumericLabel></StyledNumericInputView>
                     <StyledNumericInputView11><StyledInputNumericLabel>Minutes</StyledInputNumericLabel><StyledInputNumericLabel>Seconds</StyledInputNumericLabel></StyledNumericInputView11>
                     <StyledNumericInputView1>
                     
                     <NumericInput 
                         //valueType={'real'}
                         value={restIntervalValue}
+                        
                         rounded
                         minValue={0}
                         autoFocus={true}
