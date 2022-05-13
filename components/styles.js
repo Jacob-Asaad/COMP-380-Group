@@ -316,7 +316,7 @@ export const Avatar = styled.Image`
 `;
 
 export const WelcomeImage = styled.Image`
-    height: 35%;
+    height: 255px;
     max-width: 100%;
     
 
@@ -372,7 +372,11 @@ export const HeaderTitle = styled.Text`
   color: ${colors1.tertiary};
   letter-spacing: 2px;
   font-style: italic;
+  min-width: 100%;
+  text-align: center;
+ 
 `;
+
 export const HeaderButton = styled.TouchableOpacity`
   font-weight: bold;
   color: ${colors1.tertiary};
